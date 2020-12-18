@@ -1,38 +1,24 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <background></background>
-    <div class="one"></div>
-    <div class="two"></div>
+    <!-- <background></background> -->
   </div>
 </template>
 <script>
-import Background from 'components/common/Background'
 export default {
-  name:'APP',
-  components:{
-    Background
-  }
+  name: "APP",
+  components: {
+  },
+  mounted() {
+    document.title="欢迎光临o(*￣▽￣*)o"
+  },
 }
 </script>
 <style>
-#app{
-  overflow: hidden;
-}
-.one{
-  width: 980px;
-  height: 400px;
-  border: 2px solid black;
-  position: relative;
-  margin: 0 auto 40px;
-  z-index: 999;
-}
-.two{
-  width: 980px;
-  height: 400px;
-  border: 2px solid black;
-  position: relative;
-  margin: 0 auto ;
-  z-index: 999;
+#app {
+  background: url('assets/img/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 </style>

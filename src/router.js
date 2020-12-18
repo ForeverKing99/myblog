@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-const NavBar = () => import('components/common/NavBar.vue')
+const Home = () => import('views/home/Home.vue')
+const About = () => import('views/about/About.vue')
+const Category = () => import('views/category/Category.vue')
+const Life = () => import('views/life/Life.vue')
+const Code = () => import('views/code/Code.vue')
+const Note = () => import('views/note/Note.vue')
 Vue.use(Router)
 
 export default new Router({
@@ -14,17 +19,32 @@ export default new Router({
     {
       path: '/home',
       name: 'Home',
-      component: NavBar
+      component: Home
     },
     {
       path: '/about',
       name: 'About',
-      component: NavBar
+      component: About
     },
     {
       path:'/category',
       name:'Category',
-      component: NavBar
+      component: Category
+    },
+    {
+      path:'/note',
+      name:'Note',
+      component: Note
+    },
+    {
+      path:'/life',
+      name:'Life',
+      component: Life
+    },
+    {
+      path:'/code',
+      name:'Code',
+      component: Code
     }
   ]
 })

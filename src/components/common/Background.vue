@@ -21,7 +21,7 @@ export default {
   position: absolute;;
   top: 0;
   height: 100vh;
-  width: 100vw;
+  width: calc(100vw - 17px);
 }
 .backdrop img{
   width: 1920px;
