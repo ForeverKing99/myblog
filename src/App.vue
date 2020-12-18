@@ -1,31 +1,38 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <router-view></router-view>
+    <background></background>
+    <div class="one"></div>
+    <div class="two"></div>
   </div>
 </template>
-
+<script>
+import Background from 'components/common/Background'
+export default {
+  name:'APP',
+  components:{
+    Background
+  }
+}
+</script>
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+#app{
+  overflow: hidden;
 }
-#nav {
-  padding: 30px;
+.one{
+  width: 980px;
+  height: 400px;
+  border: 2px solid black;
+  position: relative;
+  margin: 0 auto 40px;
+  z-index: 999;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.two{
+  width: 980px;
+  height: 400px;
+  border: 2px solid black;
+  position: relative;
+  margin: 0 auto ;
+  z-index: 999;
 }
 </style>
