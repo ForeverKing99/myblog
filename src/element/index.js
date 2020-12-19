@@ -1,4 +1,4 @@
-import { container, header, menu, submenu, menuItem, main, footer, card} from 'element-ui'
+import { container, header, menu, submenu, menuItem, main, footer, card, button} from 'element-ui'
 const element = {
   install(Vue) {
     Vue.use(container)
@@ -9,6 +9,7 @@ const element = {
       Vue.use(submenu)
       Vue.use(footer)
       Vue.use(card)
+      Vue.use(button)
   }
 }
 export default element

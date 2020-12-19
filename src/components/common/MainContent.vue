@@ -1,27 +1,22 @@
 <template>
   <div class="main-content">
-    <card></card>
-    <card></card>
-    <card></card>
-    <card></card>
-    <card></card>
-    <card></card>
-    <card></card>
+    <site-header></site-header>
+   <slot></slot>
   </div>
 </template>
 
 <script>
-import Card from 'components/content/Card'
+import SiteHeader from 'components/common/SiteHeader'
 export default {
   name: "MainContent",
   components:{
-    Card
+    SiteHeader,
   }
 }
 </script>
 
 <style>
 .main-content{
-  margin-top: 100px;
+  min-height: calc(100vh - 60px);
 }
 </style>

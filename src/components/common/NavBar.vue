@@ -1,10 +1,13 @@
 <template>
+<div class="nav-bar">
+  <forever></forever>
     <el-menu
       :default-active="currentIndex"
       class="el-menu-demo"
       mode="horizontal"
       @select="handleSelect"
-      background-color="transparent"
+      background-color="rgba(0, 0, 0, 0.4)"
+      active-text-color="#409eef"
       text-color="#dcdcdc"
       router
     >
@@ -17,9 +20,15 @@
         <el-menu-item index="note" style="color:rgb(66,66,66)">随笔</el-menu-item>
       </el-submenu>
     </el-menu>
+    
+    </div>
 </template>
 
 <script>
+
+
+import Forever from 'components/common/Forever'
+
 export default {
   name: "NavBar",
   data() {
@@ -27,33 +36,68 @@ export default {
       currentIndex: this.$route.path.replace("/", ""),
     }
   },
+  components:{
+    Forever,
+    
+  },
   methods: {
     handleSelect(key, keyPath) {},
   },
+  mounted() {
+    
+  },
 }
+
 </script>
 
 <style>
+.el-container{
+  z-index: 3;
+  overflow-x: hidden;
+}
 .el-header {
   position: sticky;
   top: 0;
-  z-index: 9999;
-  background-color: rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(4px);
+  padding: 0;
+  z-index: 1;
+  height: auto !important;
+  
+}
+.el-main{
+  overflow: visible;
 }
 .el-menu {
   display: flex;
   justify-content: center;
   user-select: none;
 }
+
+.el-menu--horizontal>.el-menu-item.is-active{
+  color: black;
+}
 .el-submenu__title:hover{
   background-color: rgba(34,34,34,0.25) !important;
+}
+.el-menu--popup-bottom-start .el-menu-item{
+  background-color: rgba(255,255,255,0.7) !important;
+}
+.el-menu--popup-bottom-start .el-menu-item:hover{
+  background-color: rgba(34,34,34,1) !important;
+  color: white !important ;
+}
+.el-submenu__title{
+  background-color: transparent !important;
 }
 .el-menu-item:hover{
   background-color: rgba(34,34,34,0.25) !important;
 }
+.el-menu-item{
+  background-color: transparent !important;
+}
 .el-menu.el-menu--horizontal {
   border-bottom: none;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
 }
 .el-menu--popup-bottom-start {
   background-color: rgba(0, 0, 0, 0.15);
@@ -64,5 +108,8 @@ export default {
 .el-menu--popup-bottom-start li {
   width: 88px;
   text-align: center;
+}
+.el-icon-arrow-down:before{
+  color: #dcdcdc;
 }
 </style>
