@@ -4,7 +4,10 @@ import router from './router'
 import store from './store'
 import element from './element/index'
 import 'assets/css/normalize.css'
+import mavonEditor from "mavon-editor"
+import "mavon-editor/dist/css/index.css"
 
+Vue.use(mavonEditor)
 Vue.config.productionTip = false
 Vue.use(element)
 

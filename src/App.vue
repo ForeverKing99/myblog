@@ -2,10 +2,10 @@
   <div id="app">
     <nav-bar></nav-bar>
     <site-header></site-header>
-    <keep-alive>
+    <keep-alive include="AsideBar BottomFooter">
     <router-view></router-view>
     </keep-alive>
-    
+    <back-to-top></back-to-top>
     
     <lazy-img></lazy-img>
   </div>
@@ -14,19 +14,14 @@
 import LazyImg from 'components/common/LazyImg'
 import SiteHeader from 'components/common/SiteHeader'
 import NavBar from "components/common/NavBar.vue"
-
+import BackToTop from "components/common/BackToTop.vue"
 export default {
   name: "APP",
   components: {
     LazyImg,
     NavBar,
     SiteHeader,
-    
-  },
-  data() {
-    return {
-     
-    }
+    BackToTop,
   },
 }
 </script>

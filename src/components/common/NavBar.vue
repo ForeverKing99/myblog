@@ -24,6 +24,9 @@
         <el-menu-item index="note" style="color:rgb(66,66,66)"
           >随笔</el-menu-item
         >
+        <el-menu-item index="articleEditor" style="color:rgb(66,66,66)"
+          >编辑</el-menu-item
+        >
       </el-submenu>
     </el-menu>
   </div>
@@ -38,11 +41,6 @@ export default {
   data() {
     return {
       currentIndex: this.$route.path.replace('/',''),
-    }
-  },
-  computed(){
-    return {
-      
     }
   },
   components: {

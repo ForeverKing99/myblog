@@ -73,6 +73,8 @@ export default {
   methods: {
     handleScroll() {
       console.log(window.pageYOffset)
+      if(window.pageYOffset > window.innerHeight) this.$store.commit('backshow',true)
+      if(window.pageYOffset <= window.innerHeight) this.$store.commit('backshow',false)
       if (window.pageYOffset >= window.innerHeight && this.isFix == false) {
         this.$refs.inner.classList.add("fix")
         this.isFix = true
@@ -84,7 +86,11 @@ export default {
     },
   },
   mounted() {
+    
     window.addEventListener("scroll", this.handleScroll)
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.handleScroll)
   },
 }
 </script>
@@ -92,7 +98,6 @@ export default {
 <style>
 .aside-bar {
   width: 336px;
-  float: right;
   margin-left: 100px;
 }
 .sitebar-inner {
@@ -161,11 +166,11 @@ export default {
 .social-link p span {
   font-size: 12px;
 }
-.hobby{
+.hobby {
   font-size: 14px;
   padding: 5px;
 }
-.hobby .hobby-left{
+.hobby .hobby-left {
   float: left;
   margin-right: 20px;
 }

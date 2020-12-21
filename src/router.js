@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 const Home = () => import('views/home/Home.vue')
 const About = () => import('views/about/About.vue')
-const Category = () => import('views/category/Category.vue')
+const ArticleEditor = () => import('views/articleEditor/ArticleEditor.vue')
 const Life = () => import('views/life/Life.vue')
 const Code = () => import('views/code/Code.vue')
 const Note = () => import('views/note/Note.vue')
@@ -27,9 +27,9 @@ export default new Router({
       component: About
     },
     {
-      path:'/category',
-      name:'Category',
-      component: Category
+      path:'/articleEditor',
+      name:'ArticleEditor',
+      component: ArticleEditor
     },
     {
       path:'/note',

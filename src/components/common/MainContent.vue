@@ -6,12 +6,9 @@
 </template>
 
 <script>
-import SiteHeader from "components/common/SiteHeader"
-
 export default {
   name: "MainContent",
   components: {
-    SiteHeader,
     
   },
 }
@@ -24,13 +21,10 @@ export default {
 .el-main{
   display: flex;
   position: relative;
-  max-width: 80vw;
   margin: 0 auto;
 }
 .main-content {
-  float: left;
   min-height: calc(100vh - 60px);
-  max-width: 780px;
-  width: 38vw;
+  width: 768px;
 }
 </style>

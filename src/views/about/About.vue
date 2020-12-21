@@ -15,6 +15,7 @@ import MainContent from "components/common/MainContent.vue"
 import BottomFooter from "components/common/BottomFooter.vue"
 import ArticleDetail from "components/content/ArticleDetail.vue"
 import AsideBar from "components/common/AsideBar.vue"
+
 export default {
   name: "About",
   components: {
@@ -27,7 +28,4 @@ export default {
 </script>
 
 <style>
-article div {
-  text-align: center;
-}
 </style>
