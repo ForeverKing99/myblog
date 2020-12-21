@@ -126,8 +126,7 @@ export default {
   padding: 20px;
 }
 .article-detail{
-  max-width: 968px;
+  width: 100%;
   border: 2px solid black;
-  margin: 0 auto;
 }
 </style>

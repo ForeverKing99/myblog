@@ -1,7 +1,12 @@
 <template>
   <div class="site-header" ref="active">
     <div class="site-img" ref="lazy"></div>
-    <div class="site-master"></div>
+    <div class="site-master">
+      <el-card class="box-card">
+        <div class="avatar"><img :src="avatar" alt="头像"></div>
+        <p class="motto">身虽囿核桃 心为无限王</p>
+      </el-card>
+    </div>
   </div>
 </template>
 
@@ -11,6 +16,7 @@ export default {
   data() {
     return {
       girl: require("assets/img/girl.png"),
+      avatar:require("assets/img/avatar.jpg")
     }
   },
   mounted() {
@@ -20,7 +26,7 @@ export default {
     backGradient() {
       setTimeout(() => {
         this.$refs.lazy.classList.add("show")
-      }, 500)
+      }, 900)
     },
   },
 }
@@ -31,15 +37,13 @@ export default {
   opacity: 1 !important;
 }
 .site-header {
-  height: 40vw;
+  height: 100vh;
   width: 100vw;
   min-height: 40vh;
-  margin: -80px auto 0;
+  margin: -60px auto 0;
   position: relative;
-  right: 20px;
   z-index: 0;
 }
-
 .site-img {
   width: 100%;
   height: 100%;
@@ -48,5 +52,38 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   transition: all 1s ease-in-out;
+}
+.site-master {
+  height: 30vh;
+  width: 50vw;
+  max-width: 1024px;
+  margin: 0 auto;
+  position: relative;
+  bottom: 281px;
+}
+.el-card.box-card {
+  width: 100%;
+  height: 100%;
+  background: rgba(230, 244, 249, 0.7);
+  border: none;
+}
+.box-card .el-card__body {
+  height: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+.avatar {
+  height: 50%;
+  text-align: center;
+}
+.avatar img{
+  width: 100px;
+  border-radius: 60px;
+}
+.motto {
+  height: 50%;
+  text-align: center;
+  /* padding-top: 30px; */
+  font-size: 30px;
 }
 </style>
