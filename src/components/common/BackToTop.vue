@@ -1,48 +1,60 @@
 <template>
-  <div class="back-to-top" :class="{active:this.$store.state.isShow}" @click="backClick"></div>
+  <div class="topWrapper" :class="{ active: this.$store.state.isShow }">
+    <div class="back-to-top" @click="backClick"></div>
+  </div>
 </template>
 
 <script>
 export default {
-  name:"BackToTop",
-  data(){
-    return{
-    }
+  name: "BackToTop",
+  data() {
+    return {}
   },
   methods: {
-    backClick(){
-      console.log(this.$store.state.isShow);
-      if(timer) return
-      const distance = document.documentElement.scrollTop/100
+    backClick() {
+      if (timer) return
+      const distance = document.documentElement.scrollTop / 100
       const timer = setInterval(() => {
-        if(document.documentElement.scrollTop>80) {
+        if (document.documentElement.scrollTop > 80) {
           document.documentElement.scrollTop -= distance
-        }else{
-          document.documentElement.scrollTop --
+        } else {
+          document.documentElement.scrollTop--
         }
-        if(document.documentElement.scrollTop<=5){
+        if (document.documentElement.scrollTop <= 5) {
           document.documentElement.scrollTop = 0
           clearInterval(timer)
         }
       }, 1)
     },
   },
+  mounted() {
+   
+  },
 }
 </script>
 
 <style>
-.back-to-top{
-  cursor: pointer;
-  width: 40px;
+.topWrapper {
+  background: url("../../assets/img/backTop.png");
+  background-size: 100%;
+
+  width: 100px;
   height: 700px;
-  border: 1px solid black;
   position: fixed;
   transition: all 0.5s ease-in-out;
-  top: -600px;
-  right: 50px;
+  top: -900px;
+  right: 100px;
   z-index: 4;
 }
-.back-to-top.active{
-  top: 600px;
+.topWrapper.active {
+  top: 0px;
+}
+.back-to-top {
+  width: 100px;
+  height: 80px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
 }
 </style>

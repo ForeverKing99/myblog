@@ -2,7 +2,7 @@
   <div id="app">
     <nav-bar></nav-bar>
     <site-header></site-header>
-    <keep-alive include="AsideBar BottomFooter">
+    <keep-alive>
     <router-view></router-view>
     </keep-alive>
     <back-to-top></back-to-top>
@@ -15,6 +15,7 @@ import LazyImg from 'components/common/LazyImg'
 import SiteHeader from 'components/common/SiteHeader'
 import NavBar from "components/common/NavBar.vue"
 import BackToTop from "components/common/BackToTop.vue"
+import {windowScroll} from './mixin'
 export default {
   name: "APP",
   components: {
@@ -22,6 +23,10 @@ export default {
     NavBar,
     SiteHeader,
     BackToTop,
+  },
+  mixins:[windowScroll],
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll)
   },
 }
 </script>

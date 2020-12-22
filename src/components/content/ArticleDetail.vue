@@ -1,9 +1,13 @@
 <template>
   <article class="article-detail">
     <div class="article-wrap">
+      <card-post></card-post>
       <div class="article-head">
         <h2 class="article-title">我是这个文章的标题</h2>
-        <p class="article-meta">发表于2020-12-19 0评论 99阅读</p>
+        <p class="article-meta">
+          <img :src="calendar" alt="时间" /> 发表于 2020-12-19
+          <img :src="word" alt="字数" /> 字数统计 0.8k
+        </p>
       </div>
       <div class="article-body">
         <mavon-editor
@@ -23,11 +27,15 @@
 </template>
 
 <script>
+import CardPost from "components/content/CardPost"
 export default {
   name: "ArticleDetail",
-  data(){
+  components: {
+    CardPost,
+  },
+  data() {
     return {
-      articleBody:`<h1>完美打卡 PerfectClockIn</h1>
+      articleBody: `<h1>完美打卡 PerfectClockIn</h1>
 <blockquote><p>完美校园自动健康打卡，仅供个人研究/学习/欣赏,请勿用于商业用途,否则产生的一切后果将由您自己承担。</p>
 </blockquote>
 <h2>使用技术</h2>
@@ -58,31 +66,42 @@ export default {
 </code></pre>
 <p>notice 配置用于消息通知，支持微信、邮箱</p>
 <p>[微信sckey获取</p>
-`
-
+`,
+      calendar: require("assets/img/calendar.svg"),
+      word: require("assets/img/word.svg"),
     }
   },
 }
 </script>
 
 <style>
-
 article div {
   text-align: center;
+}
+
+.article-meta img{
+  height: 16px;
 }
 .article-wrap {
   width: 100%;
   background-color: rgba(255, 255, 255, 1);
   border-radius: 15px;
   padding: 20px;
+  position: relative;
 }
 .article-head {
   padding: 0 0 30px 0;
+}
+.article-wrap .post-data {
+  left: auto;
+}
+
+.article-wrap .post-badge {
+  margin-top: 50px;
 }
 .article-body {
   margin-top: 10px;
   padding: 20px;
   text-align: left;
 }
-
 </style>

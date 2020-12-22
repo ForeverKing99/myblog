@@ -40,7 +40,7 @@ export default {
   name: "NavBar",
   data() {
     return {
-      currentIndex: this.$route.path.replace('/',''),
+      currentIndex: this.$route.path.replace("/", ""),
     }
   },
   components: {
@@ -50,6 +50,21 @@ export default {
   methods: {
     handleSelect(key, keyPath) {
       this.currentIndex = key
+      this.scrollTo()
+    },
+    scrollTo() {
+      if (timer) return
+      const distance =
+        (document.documentElement.scrollTop - window.innerHeight) / 100
+      const timer = setInterval(() => {
+          document.documentElement.scrollTop -= distance
+        if (
+          Math.abs(document.documentElement.scrollTop - window.innerHeight) <= Math.abs(distance)
+        ) {
+          document.documentElement.scrollTop = window.innerHeight
+          clearInterval(timer)
+        }
+      }, 1)
     },
   },
   mounted() {

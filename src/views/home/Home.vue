@@ -1,4 +1,4 @@
-<template>
+<template><keep-alive include="AsideBar">
   <el-container>
     <el-main>
       <main-content>
@@ -10,11 +10,14 @@
         <card></card>
         <card></card>
       </main-content>
+       
       <aside-bar></aside-bar
     >
+    
+    
     </el-main>
     <el-footer><bottom-footer></bottom-footer></el-footer>
-  </el-container>
+  </el-container></keep-alive>
 </template>
 
 <script>

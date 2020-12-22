@@ -1,5 +1,6 @@
 <template>
   <article class="card">
+    <card-post></card-post>
     <el-card
       ><card-title></card-title>
       <card-content></card-content>
@@ -10,12 +11,14 @@
 
 <script>
 import CardTitle from "components/content/CardTitle"
+import CardPost from "components/content/CardPost"
 import CardContent from "components/content/CardContent"
 export default {
   name: "Card",
   components: {
     CardTitle,
     CardContent,
+    CardPost,
   },
 }
 </script>

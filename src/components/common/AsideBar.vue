@@ -1,10 +1,10 @@
 <template>
   <div class="aside-bar" ref="aside">
-    <div class="sitebar-inner" ref="inner">
-      <el-tabs type="border-card">
-        <el-tab-pane label="文章目录"> </el-tab-pane>
+    <div class="sitebar-inner" :class="{fix:$store.state.isFix}">
+      <el-tabs type="border-card" v-model="$store.state.aside" @tab-click="tabClick">
+        <el-tab-pane label="文章目录" name="article"> </el-tab-pane>
         <el-tab-pane label="关于我"
-          ><div class="head-img"></div>
+          name="me"><div class="head-img"></div>
           <div class="social-link">
             <p>
               <a href="" target="_blank"
@@ -62,7 +62,6 @@ export default {
   name: "AsideBar",
   data() {
     return {
-      isFix: false,
       headImg: require("assets/img/headImg.jpg"),
       tencent: require("assets/img/QQ.svg"),
       blbl: require("assets/img/blbl.svg"),
@@ -71,26 +70,9 @@ export default {
     }
   },
   methods: {
-    handleScroll() {
-      console.log(window.pageYOffset)
-      if(window.pageYOffset > window.innerHeight) this.$store.commit('backshow',true)
-      if(window.pageYOffset <= window.innerHeight) this.$store.commit('backshow',false)
-      if (window.pageYOffset >= window.innerHeight && this.isFix == false) {
-        this.$refs.inner.classList.add("fix")
-        this.isFix = true
-      }
-      if (window.pageYOffset < window.innerHeight && this.isFix == true) {
-        this.$refs.inner.classList.remove("fix")
-        this.isFix = false
-      }
-    },
-  },
-  mounted() {
-    
-    window.addEventListener("scroll", this.handleScroll)
-  },
-  destroyed() {
-    window.removeEventListener("scroll", this.handleScroll)
+    tabClick(event){
+      this.$store.commit('asideClick',event.name)
+    }
   },
 }
 </script>
@@ -159,6 +141,7 @@ export default {
   transition: 0.3s ease;
 }
 .social-link p .el-button {
+  background:#e6f4f9cc;
   outline: none;
   padding: 5px 10px;
   border-radius: 10px;
