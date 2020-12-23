@@ -2,6 +2,9 @@
   <div class="article-editor">
     <el-main>
       <main-content>
+        <div class="article-submit">
+          <el-button type="primary">提交</el-button>
+        </div>
         <mavon-editor
           ref="md"
           placeholder="请输入文档内容..."
@@ -9,9 +12,8 @@
           style="z-index:1;border: 1px solid #d9d9d9;height:70vh"
           v-model="content"
           :toolbars="toolbars"
-        />
-      </main-content></el-main
-    >
+        /> </main-content
+    ></el-main>
     <el-footer><bottom-footer></bottom-footer></el-footer>
   </div>
 </template>
@@ -21,8 +23,7 @@ import MainContent from "components/common/MainContent.vue"
 import BottomFooter from "components/common/BottomFooter.vue"
 export default {
   name: "ArticleEditor",
-  props:{
-  },
+  props: {},
   components: {
     MainContent,
     BottomFooter,
@@ -84,5 +85,13 @@ export default {
   width: 1440px;
   margin: 0 auto;
   max-width: 1920px;
+}
+.article-submit .el-button {
+  padding: 10px;
+  outline: none;
+  border: none;
+  background: white;
+  color: #757575;
+  margin-bottom: 5px;
 }
 </style>

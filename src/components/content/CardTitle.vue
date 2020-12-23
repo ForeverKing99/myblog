@@ -1,6 +1,6 @@
 <template>
   <div class="card-title">
-    <h2>我真的是一个标题</h2>
+    <h2>{{articleTitle}}</h2>
     <div class="post-meta">
       <span><img :src="calendar" alt="时间"> 发表于 2020-12-19 <img :src="word" alt="字数"> 字数统计 0.8k</span>
     </div>
@@ -10,6 +10,12 @@
 <script>
 export default {
   name:"CardTitle",
+  props:{
+    articleTitle:{
+      type:String,
+      default:''
+    }
+  },
   data(){
     return{
       calendar:require('assets/img/calendar.svg'),

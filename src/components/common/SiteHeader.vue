@@ -1,6 +1,6 @@
 <template>
   <div class="site-header" ref="active">
-    <div class="site-img" ref="lazy"></div>
+    <div class="site-img" ref="lazy"><video :src="backvideo" autoplay loop muted></video> </div>
     <div class="site-master">
       <el-card class="box-card">
         <div class="avatar"><img :src="avatar" alt="头像"></div>
@@ -16,7 +16,8 @@ export default {
   data() {
     return {
       girl: require("assets/img/girl.png"),
-      avatar:require("assets/img/avatar.jpg")
+      avatar:require("assets/img/avatar.jpg"),
+      backvideo:require('assets/img/backvideo.mp4')
     }
   },
   mounted() {
@@ -48,10 +49,14 @@ export default {
   width: 100%;
   height: 100%;
   opacity: 0;
-  background: url("../../assets/img/girl.png");
+  /* background: url("../../assets/img/girl.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
   transition: all 1s ease-in-out;
+}
+.site-img video{
+  /* height: 100%;
+  width: 100%; */
 }
 .site-master {
   height: 30vh;

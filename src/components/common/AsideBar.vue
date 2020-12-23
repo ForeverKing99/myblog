@@ -1,10 +1,10 @@
 <template>
   <div class="aside-bar" ref="aside">
-    <div class="sitebar-inner" :class="{fix:$store.state.isFix}">
-      <el-tabs type="border-card" v-model="$store.state.aside" @tab-click="tabClick">
+    <div class="sitebar-inner" :class="{ fix: $store.state.isFix }">
+      <el-tabs type="border-card" v-model="$store.state.aside">
         <el-tab-pane label="文章目录" name="article"> </el-tab-pane>
-        <el-tab-pane label="关于我"
-          name="me"><div class="head-img"></div>
+        <el-tab-pane label="关于我" name="me"
+          ><div class="head-img"></div>
           <div class="social-link">
             <p>
               <a href="" target="_blank"
@@ -58,6 +58,7 @@
 </template>
 
 <script>
+import {watchOne} from "../../mixin"
 export default {
   name: "AsideBar",
   data() {
@@ -69,11 +70,12 @@ export default {
       www: require("assets/img/head.svg"),
     }
   },
-  methods: {
-    tabClick(event){
-      this.$store.commit('asideClick',event.name)
-    }
+  methods: {},
+  mounted() {
+    // document.getElementsByClassName("el-tabs__nav-scroll")[0].style.display =
+    //   "none"
   },
+  mixins:[watchOne]
 }
 </script>
 
@@ -86,8 +88,7 @@ export default {
   /* width: 300; */
   /* padding: 10px 10px; */
   overflow: hidden;
-  border: 1px solid black;
-  border-radius: 20px;
+  border-radius: 15px;
 }
 .sitebar-inner.fix {
   /* width: 300px; */
@@ -103,8 +104,11 @@ export default {
   border-radius: 10px;
 }
 .sitebar-inner .el-tabs__nav-scroll {
-  display: flex;
+  display: none;
   justify-content: center;
+}
+.sitebar-inner .el-tabs__nav-scroll.noshow {
+  display: none;
 }
 .sitebar-inner .el-tabs__header {
   border: none;
@@ -141,7 +145,7 @@ export default {
   transition: 0.3s ease;
 }
 .social-link p .el-button {
-  background:#e6f4f9cc;
+  background: #e6f4f9cc;
   outline: none;
   padding: 5px 10px;
   border-radius: 10px;

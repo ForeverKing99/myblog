@@ -2,9 +2,9 @@
   <article class="card">
     <card-post></card-post>
     <el-card
-      ><card-title></card-title>
-      <card-content></card-content>
-      <button class="enter">阅读全文 ></button>
+      ><card-title :articleTitle="articleTitle"></card-title>
+      <card-content :articleBody="articleBody"></card-content>
+      <button class="enter" @click="getArticlePage">阅读全文 ></button>
     </el-card>
   </article>
 </template>
@@ -13,12 +13,40 @@
 import CardTitle from "components/content/CardTitle"
 import CardPost from "components/content/CardPost"
 import CardContent from "components/content/CardContent"
+import { getArticleDetail } from "network/articleList"
+
 export default {
   name: "Card",
+  props:{
+    item:{
+      type:Object,
+      default:()=>{
+        return {}
+      }
+    },
+    id:{
+      type:Number,
+    }
+  },
+  data(){
+    return{
+      articleTitle:this.item.title,
+      articleBody:this.item.body
+    }
+  },
   components: {
     CardTitle,
     CardContent,
     CardPost,
+  },
+  methods: {
+    getArticlePage(){
+      this.$router.push('/articlePage/' + this.id)
+      getArticleDetail(this.id).then((res)=>{
+        this.$store.state.articleDetail = res
+      })
+      this.$store.state.currentTitle = this.item.title
+    },
   },
 }
 </script>

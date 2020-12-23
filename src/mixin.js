@@ -1,9 +1,25 @@
 const realPath = {
- 
   created() {
-    console.log('我是mixin');
+    // console.log('我是mixin');
+  },
+  
+}
+
+const watchOne = {
+  watch: {
+    '$store.state.currentPath':function(){
+      if(this.$store.state.currentPath.indexOf('articlePage') < 0){
+        document.getElementsByClassName("el-tabs__nav-scroll")[0].style.display = 'none'
+        this.$store.state.aside = 'me'
+      }else{
+        document.getElementsByClassName("el-tabs__nav-scroll")[0].style.display = 'flex'
+        this.$store.state.aside = 'article'
+      }
+    }
+
   },
 }
+
 const windowScroll = {
   data() {
     return {
@@ -12,7 +28,6 @@ const windowScroll = {
   },
   methods: {
     handleScroll() {
-      console.log(window.pageYOffset)
       if (window.pageYOffset > window.innerHeight) this.$store.commit('backshow', true)
       if (window.pageYOffset <= window.innerHeight) this.$store.commit('backshow', false)
       if (window.pageYOffset >= window.innerHeight && this.isFix == false) {
@@ -26,4 +41,4 @@ const windowScroll = {
     }
   },
 }
-export { realPath, windowScroll }
+export { realPath, windowScroll ,watchOne }

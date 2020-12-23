@@ -9,7 +9,6 @@
       background-color="rgba(0, 0, 0, 0.4)"
       active-text-color="#409eef"
       text-color="#dcdcdc"
-      router
     >
       <el-menu-item index="home">主页</el-menu-item>
       <el-menu-item index="about">关于</el-menu-item>
@@ -41,6 +40,7 @@ export default {
   data() {
     return {
       currentIndex: this.$route.path.replace("/", ""),
+      timeArray: [],
     }
   },
   components: {
@@ -51,20 +51,48 @@ export default {
     handleSelect(key, keyPath) {
       this.currentIndex = key
       this.scrollTo()
+      this.$router.push("/" + key).catch(err => {})
     },
-    scrollTo() {
-      if (timer) return
+    debounce(func, time, self) {
+      var timer
+      return function() {
+        if (self.timeArray.length > 0) {
+          for (let i = 0; i < self.timeArray.length; i++) {
+            // console.log('clear');
+            clearInterval(self.timeArray[i])
+          }
+        }
+        timer = setInterval(func(), time)
+        self.timeArray.push(timer)
+      }
+    },
+    _test() {
+      var self = this
       const distance =
         (document.documentElement.scrollTop - window.innerHeight) / 100
-      const timer = setInterval(() => {
-          document.documentElement.scrollTop -= distance
-        if (
-          Math.abs(document.documentElement.scrollTop - window.innerHeight) <= Math.abs(distance)
-        ) {
-          document.documentElement.scrollTop = window.innerHeight
-          clearInterval(timer)
+      return function() {
+        self.scrollfunc(distance)
+      }
+    },
+    scrollfunc(distance) {
+      // console.log(distance)
+      document.documentElement.scrollTop -= distance
+      // console.log(document.documentElement.scrollTop - window.innerHeight)
+      if (
+        Math.abs(document.documentElement.scrollTop - window.innerHeight) <=
+        Math.abs(distance)
+      ) {
+        // console.log('结束');
+        document.documentElement.scrollTop = window.innerHeight
+        for (let i = this.timeArray.length -1; i >= 0; i--) {
+          clearInterval(this.timeArray[i])
+          this.timeArray.pop()
         }
-      }, 1)
+      }
+    },
+    scrollTo() {
+      if(this.timeArray > 1) return false
+      this.debounce(this._test, 1, this)()
     },
   },
   mounted() {

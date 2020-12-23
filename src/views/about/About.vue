@@ -1,13 +1,12 @@
-<template
-  ><keep-alive include="AsideBar">
-    <el-container>
-      <el-main
-        ><main-content>
-          <article-detail></article-detail> </main-content
-        ><aside-bar></aside-bar>
-      </el-main>
-      <el-footer><bottom-footer></bottom-footer></el-footer> </el-container
-  ></keep-alive>
+<template>
+  <el-container>
+    <el-main
+      ><main-content>
+        <article-detail :isAbout="true"></article-detail> </main-content
+      ><aside-bar></aside-bar>
+    </el-main>
+    <el-footer><bottom-footer></bottom-footer></el-footer>
+  </el-container>
 </template>
 
 <script>
@@ -15,10 +14,19 @@ import MainContent from "components/common/MainContent.vue"
 import BottomFooter from "components/common/BottomFooter.vue"
 import ArticleDetail from "components/content/ArticleDetail.vue"
 import AsideBar from "components/common/AsideBar.vue"
+import { getArticleDetail } from "network/articleList"
 import {realPath} from "../../mixin.js"
 
 export default {
   name: "About",
+  data(){
+    return{
+      articleDetail:()=>{
+        return {}
+      },
+      id:'about'
+    }
+  },
   components: {
     MainContent,
     BottomFooter,
@@ -26,7 +34,10 @@ export default {
     AsideBar,
   },
   created() {
-    console.log("我是abaoutcrated")
+    // console.log("我是abaoutcrated")
+    // getArticleDetail(this.id).then((res)=>{
+    //     this.articleDetail = res
+    //   })
   },
   mixins: [realPath],
 }

@@ -2,13 +2,8 @@
   <el-container>
     <el-main>
       <main-content>
-        <card></card>
-        <card></card>
-        <card></card>
-        <card></card>
-        <card></card>
-        <card></card>
-        <card></card>
+        <card v-for="item in $store.state.articleList" :key="item.id" :item='item' :id="item.id"></card>
+        
       </main-content>
        
       <aside-bar></aside-bar

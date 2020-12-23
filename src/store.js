@@ -9,17 +9,20 @@ export default new Vuex.Store({
     currentPath:'',
     aside:'article',
     isFix:false,
+    currentTitle:'',
+    articleList:[],
+    articleDetail:{}
   },
   mutations: {
     backshow(state,payload){
       state.isShow = payload
     },
-    asideClick(state,payload){
-      state.aside = payload
-    },
     isfix(state,payload){
       state.isFix = payload
-    }
+    },
+    changepath(state,payload){
+      state.currentPath = payload
+    },
   },
   actions: {
 

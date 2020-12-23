@@ -1,13 +1,19 @@
 <template>
   <div class="card-content">
-    <p class="content-body">我是内容啊啊 啊啊啊我是内容啊啊 啊啊啊我是内容啊啊 啊啊啊我是内容啊啊 啊啊啊我是内容啊啊 啊啊啊我是内容啊啊 啊啊啊我是内容啊啊 啊啊啊我是内容啊啊 啊啊啊我是内容啊啊 啊啊啊我是内容啊啊 啊啊啊我是内容啊啊 啊啊啊我是内容啊啊 啊啊啊我是内容啊啊 啊啊啊我是内容啊啊 啊啊啊我是内容啊啊 啊啊啊我是内容啊啊 啊啊啊我是内容啊啊 啊啊啊我是内容啊啊 啊啊啊我是内容啊啊 啊啊啊</p>
+    <p class="content-body">{{articleBody}}</p>
     
   </div>
 </template>
 
 <script>
 export default {
-  name:"CardContent"
+  name:"CardContent",
+  props:{
+    articleBody:{
+      type:String,
+      default:''
+    }
+  }
 }
 </script>
 
