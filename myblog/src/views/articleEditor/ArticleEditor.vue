@@ -24,8 +24,17 @@
           :boxShadow="false"
           style="z-index:1;border: 1px solid #d9d9d9;height:70vh"
           v-model="content"
-          :toolbars="toolbars"
-        /> </main-content
+          :toolbars="toolbars"/>
+        <div><input type="text" placeholder="请输入标题" v-model="title" class="editorInput"/></div>
+        <textarea
+          name=""
+          id=""
+          cols="30"
+          rows="10"
+          class="textarea"
+          placeholder="请输入简介"
+          v-model="summary"
+        ></textarea></main-content
     ></el-main>
     <el-footer><bottom-footer></bottom-footer></el-footer>
   </div>
@@ -45,7 +54,7 @@ export default {
   },
   data() {
     return {
-      content: "",
+      summary: "",
       toolbars: {
         bold: true, // 粗体
         italic: true, // 斜体
@@ -83,6 +92,8 @@ export default {
       },
       isVisible: false,
       commitMessage: "",
+      title:'',
+      content:''
     }
   },
   methods: {
@@ -91,11 +102,16 @@ export default {
       console.log(pos, $file)
     },
     articleSubmit() {
-      if (!this.content.replace(/^\s+|\s+$/g,'')) {
+      if (!this.content.replace(/^\s+|\s+$/g, "")) {
         this.commitMessage = "请输入内容"
         this.isVisible = true
-      } else {
-        articleUpload(this.content)
+      } else if(this.summary&&this.content&&this.title) {
+        const obj = {
+          content:this.content,
+          summary:this.summary,
+          title:this.title
+        }
+        articleUpload(obj)
           .then(res => {
             this.commitMessage = "成功"
             this.isVisible = true
@@ -105,6 +121,9 @@ export default {
             this.isVisible = true
             // console.log(err)
           })
+      }else{
+        this.commitMessage = "请输入完整信息"
+        this.isVisible = true
       }
     },
     uploaded() {
@@ -115,6 +134,22 @@ export default {
 </script>
 
 <style scoped>
+.textarea {
+  resize: none;
+  outline: none;
+  width: 720px;
+  height: 150px;
+  /* border: none; */
+  /* margin-left: 10px; */
+}
+.editorInput {
+  width: 718px;
+  height: 30px;
+  /* border-radius: 5px; */
+  outline: none;
+  margin: 10px 0;
+}
+
 .article-editor {
   padding-top: 150px;
 }

@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const detaildata = require('../articles/detaildata')
+const detaildata = require('../articles/testdetail.json')
 
 
 router.get('/:id', function (req, res, next) {

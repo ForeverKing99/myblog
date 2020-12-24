@@ -18,7 +18,7 @@
       </div>
       <div class="article-body">
         <mavon-editor
-          :value="articleDetail.detail"
+          :value="articleDetail"
           defaultOpen="preview"
           :boxShadow="false"
           style="z-index:1;"
@@ -39,10 +39,8 @@ export default {
   name: "ArticleDetail",
   props: {
     articleDetail: {
-      type: Object,
-      default: () => {
-        return {}
-      },
+      type: String,
+      default: ''
     },
     isAbout:{
       type:Boolean,

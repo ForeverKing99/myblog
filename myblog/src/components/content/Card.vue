@@ -31,7 +31,7 @@ export default {
   data(){
     return{
       articleTitle:this.item.title,
-      articleBody:this.item.body
+      articleBody:this.item.summary
     }
   },
   components: {
@@ -43,7 +43,7 @@ export default {
     getArticlePage(){
       this.$router.push('/articlePage/' + this.id)
       getArticleDetail(this.id).then((res)=>{
-        this.$store.state.articleDetail = res.data
+        this.$store.state.articleDetail = res.data.content
       })
       this.$store.state.currentTitle = this.item.title
     },

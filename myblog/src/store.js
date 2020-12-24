@@ -11,7 +11,7 @@ export default new Vuex.Store({
     isFix:false,
     currentTitle:'',
     articleList:[],
-    articleDetail:{}
+    articleDetail:''
   },
   mutations: {
     backshow(state,payload){

@@ -1,11 +1,8 @@
 import {request} from './request'
-export function articleUpload(content){
+export function articleUpload(obj){
   return request({
     url:'/articleUpload',
     method:"post",
-    data:{
-      title:'测试标题',
-      content,
-    }
+    data:{...obj}
   })
 }
