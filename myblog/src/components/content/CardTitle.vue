@@ -41,9 +41,6 @@ export default {
   text-align: center;
   margin: 0 auto;
 }
-.card-title{
-  
-}
 .post-meta{
   text-align: center;
   padding-top: 15px;
