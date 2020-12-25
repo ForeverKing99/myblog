@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var articlelist = require('./routes/articlelist');
 var articlepage = require('./routes/articlepage');
 var articleUpload = require('./routes/articleUpload');
+var login = require('./routes/login');
 // var myData = require('./myData')
 
 var app = express();
@@ -31,7 +32,7 @@ app.use('/users', usersRouter);
 app.use('/articlelist', articlelist);
 app.use('/articlepage', articlepage);
 app.use('/articleUpload', articleUpload);
-
+app.use('/login', login);
 
 
 

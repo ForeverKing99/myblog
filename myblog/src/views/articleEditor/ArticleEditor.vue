@@ -25,7 +25,18 @@
           style="z-index:1;border: 1px solid #d9d9d9;height:70vh"
           v-model="content"
           :toolbars="toolbars"/>
-        <div><input type="text" placeholder="请输入标题" v-model="title" class="editorInput"/></div>
+        <div>
+          <input
+            type="text"
+            placeholder="请输入标题"
+            v-model="title"
+            class="editorInput"
+          /><select id="select">
+            <option value="编程">编程</option>
+            <option value="生活">生活</option>
+            <option value="随笔">随笔</option>
+          </select>
+        </div>
         <textarea
           name=""
           id=""
@@ -92,8 +103,9 @@ export default {
       },
       isVisible: false,
       commitMessage: "",
-      title:'',
-      content:''
+      title: "",
+      content: "",
+      tab:''
     }
   },
   methods: {
@@ -105,11 +117,12 @@ export default {
       if (!this.content.replace(/^\s+|\s+$/g, "")) {
         this.commitMessage = "请输入内容"
         this.isVisible = true
-      } else if(this.summary&&this.content&&this.title) {
+      } else if (this.summary && this.content && this.title) {
         const obj = {
-          content:this.content,
-          summary:this.summary,
-          title:this.title
+          content: this.content,
+          summary: this.summary,
+          title: this.title,
+          tab: this.tab
         }
         articleUpload(obj)
           .then(res => {
@@ -121,7 +134,7 @@ export default {
             this.isVisible = true
             // console.log(err)
           })
-      }else{
+      } else {
         this.commitMessage = "请输入完整信息"
         this.isVisible = true
       }
@@ -130,10 +143,18 @@ export default {
       this.isVisible = false
     },
   },
+  mounted() {
+    this.tab = document.getElementById('select').value
+    if(this.$store.state.login != true) this.$router.push('/home')
+  },
 }
 </script>
 
 <style scoped>
+#select{
+  outline: none;
+  margin-left: 10px;
+}
 .textarea {
   resize: none;
   outline: none;

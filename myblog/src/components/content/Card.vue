@@ -1,11 +1,11 @@
 <template>
   <article class="card">
-    <card-post></card-post>
+    <card-post :item="item"></card-post>
     <el-card
       ><card-title
         :articleTitle="articleTitle"
         :articleLength="articleLength"
-        :articletime="articletime"
+        :articletime="articleTime"
       ></card-title>
       <card-content :articleBody="articleBody"></card-content>
       <button class="enter" @click="getArticlePage">阅读全文 ></button>
@@ -37,7 +37,9 @@ export default {
       articleTitle: this.item.title,
       articleBody: this.item.summary,
       articleLength: this.item.length,
-      articletime: this.item.time,
+      articleTime: this.item.time,
+      articleTab: this.item.tab,
+      articleId: this.item.id,
     }
   },
   components: {
@@ -61,7 +63,7 @@ export default {
     },
     getTitle(str) {
       var title = []
-      var test = str.match(/^[\#]+[\s][\u4e00-\u9fa5_a-zA-Z0-9]+/gm)
+      var test = str.match(/^[\#]+[\s][\.]*[\u4e00-\u9fa5_a-zA-Z0-9]+/gm)
       if (test) {
         for (let i = 0; i < test.length; i++) {
           title.push(test[i].replace(" ", ""))

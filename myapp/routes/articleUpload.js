@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs')
-var buf = new Buffer.alloc(10240);
+var buf = new Buffer.alloc(102400);
 var path = require('path')
 var articlePath = path.resolve(__dirname, '../articles')
 var obj = {}
@@ -19,6 +19,7 @@ router.post('/', function (req, res, next) {
   obj.id = idData[0].contentlength
   obj.length = req.body.content.length
   obj.time = time
+  obj.tab = req.body.tab
   newDetail.id = idData[0].contentlength
   idData[0].contentlength++
   articleData.push(obj)
@@ -26,6 +27,7 @@ router.post('/', function (req, res, next) {
   newDetail.title = req.body.title
   newDetail.length = req.body.content.length
   newDetail.time = time
+  newDetail.tab = req.body.tab
   idData.push(newDetail)
   var writeDetail = JSON.stringify(idData)
   var writeData = JSON.stringify(articleData)

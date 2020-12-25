@@ -3,17 +3,20 @@
     <div class="article-wrap">
       <card-post></card-post>
       <div class="article-head" v-if="!isAbout">
-        <h2 class="article-title">{{ $store.state.currentTitle }}</h2>
+        <h2 class="article-title" v-cloak>{{ $store.state.currentTitle }}</h2>
         <p class="article-meta">
-          <img :src="calendar" alt="时间" /> 发表于 {{formatDate($store.state.time)}}
-          <img :src="word" alt="字数" /> 字数统计 {{$store.state.length}}
+          <img :src="calendar" alt="时间" /> 发表于
+          {{ formatDate($store.state.time) }}
+          <img :src="word" alt="字数" /> 字数统计
+          {{ ($store.state.length / 1000).toFixed(1) }}k
         </p>
       </div>
       <div class="article-head" v-else>
         <h2 class="article-title">我是关于页面</h2>
         <p class="article-meta">
-          <img :src="calendar" alt="时间" /> 发表于 {{formatDate($store.state.time)}}
-          <img :src="word" alt="字数" /> 字数统计 {{$store.state.length}}
+          <img :src="calendar" alt="时间" /> 发表于
+          {{ formatDate($store.state.time) }}
+          <img :src="word" alt="字数" /> 字数统计 {{ $store.state.length }}
         </p>
       </div>
       <div class="article-body">
@@ -62,7 +65,6 @@ export default {
   computed: {},
   mounted() {
     // console.log(this.articleDate);
-    
   },
 }
 </script>

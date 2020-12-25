@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs')
-var buf = new Buffer.alloc(10240);
+var buf = new Buffer.alloc(102400);
 var path = require('path')
 var articlePath = path.resolve(__dirname, '../articles')
 

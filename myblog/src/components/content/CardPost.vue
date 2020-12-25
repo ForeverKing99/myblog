@@ -1,10 +1,10 @@
 <template>
   <div class="card-post">
     <div class="post-data">
-      <div class="post-month">12月</div>
-      <div class="post-day">22日</div>
+      <div class="post-month">{{ articleMonth }}月</div>
+      <div class="post-day">{{ articleDay }}</div>
     </div>
-    <div class="post-badge">{{ postBadge }}</div>
+    <div class="post-badge">{{ item.tab }}</div>
   </div>
 </template>
 
@@ -12,9 +12,35 @@
 export default {
   name: "CardPost",
   data() {
-    return {
-      postBadge: "我是徽章",
-    }
+    return {}
+  },
+  props: {
+    item: {
+      type: Object,
+      default: () => {
+        return {}
+      },
+    },
+  },
+  computed: {
+    articleDay() {
+      if (!this.$store.state.time) {
+        console.log("nohao")
+
+        return new Date(this.item.time).getDate() || 1
+      } else {
+        console.log("hh")
+
+        return new Date(this.$store.state.time).getDate() || 1
+      }
+    },
+    articleMonth() {
+      if (!this.$store.state.time) {
+        return new Date(this.item.time).getMonth() + 1 || 1
+      } else {
+        return new Date(this.$store.state.time).getMonth() + 1 || 1
+      }
+    },
   },
 }
 </script>
@@ -26,7 +52,7 @@ export default {
   font-size: 14px;
   border-radius: 35px;
   /* border: 1px solid black; */
-  box-shadow: 0 2px 12px rgba(151,223,253,0.85);
+  box-shadow: 0 2px 12px rgba(151, 223, 253, 0.85);
   position: absolute;
   transform: translate(-50%, -50%);
   left: 0;
@@ -35,7 +61,14 @@ export default {
 }
 
 .post-month {
+  color: white;
   padding-top: 10px;
+  font-size: 12px;
+}
+.post-day {
+  color: white;
+  padding-top: 5px;
+  font-size: 24px;
 }
 .post-badge {
   padding: 0 10px;
@@ -43,7 +76,7 @@ export default {
   line-height: 24px;
   /* border: 1px solid black; */
   border-radius: 3px;
-  box-shadow: 0 2px 12px rgba(151,223,253,0.85);
+  box-shadow: 0 2px 12px rgba(151, 223, 253, 0.85);
   position: absolute;
   top: 50px;
   left: 0;
