@@ -15,7 +15,6 @@ import BottomFooter from "components/common/BottomFooter.vue"
 import ArticleDetail from "components/content/ArticleDetail.vue"
 import AsideBar from "components/common/AsideBar.vue"
 import { getArticleDetail } from "network/articleList"
-import {realPath} from "../../mixin.js"
 
 export default {
   name: "About",
@@ -39,7 +38,6 @@ export default {
     //     this.articleDetail = res
     //   })
   },
-  mixins: [realPath],
 }
 </script>
 

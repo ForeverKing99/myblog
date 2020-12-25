@@ -2,24 +2,35 @@
   <div class="card-title">
     <h2>{{articleTitle}}</h2>
     <div class="post-meta">
-      <span><img :src="calendar" alt="时间"> 发表于 2020-12-19 <img :src="word" alt="字数"> 字数统计 0.8k</span>
+      <span><img :src="calendar" alt="时间"> 发表于 {{articleDate}} <img :src="word" alt="字数"> 字数统计 {{articleLength}}</span>
     </div>
   </div>
 </template>
 
 <script>
+import {formatDate} from '../../mixin'
 export default {
   name:"CardTitle",
   props:{
     articleTitle:{
       type:String,
       default:''
+    },
+    articleLength:{
+      type:Number,
+      default:0
+    },
+    articletime:{
+      type:Number,
+      default:0
     }
   },
+  mixins:[formatDate],
   data(){
     return{
       calendar:require('assets/img/calendar.svg'),
-      word:require('assets/img/word.svg')
+      word:require('assets/img/word.svg'),
+      articleDate:this.formatDate(this.articletime)
     }
   }
 }

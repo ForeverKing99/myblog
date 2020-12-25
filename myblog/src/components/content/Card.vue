@@ -2,7 +2,11 @@
   <article class="card">
     <card-post></card-post>
     <el-card
-      ><card-title :articleTitle="articleTitle"></card-title>
+      ><card-title
+        :articleTitle="articleTitle"
+        :articleLength="articleLength"
+        :articletime="articletime"
+      ></card-title>
       <card-content :articleBody="articleBody"></card-content>
       <button class="enter" @click="getArticlePage">阅读全文 ></button>
     </el-card>
@@ -17,21 +21,23 @@ import { getArticleDetail } from "network/articleList"
 
 export default {
   name: "Card",
-  props:{
-    item:{
-      type:Object,
-      default:()=>{
+  props: {
+    item: {
+      type: Object,
+      default: () => {
         return {}
-      }
+      },
     },
-    id:{
-      type:Number,
-    }
+    id: {
+      type: Number,
+    },
   },
-  data(){
-    return{
-      articleTitle:this.item.title,
-      articleBody:this.item.summary
+  data() {
+    return {
+      articleTitle: this.item.title,
+      articleBody: this.item.summary,
+      articleLength: this.item.length,
+      articletime: this.item.time,
     }
   },
   components: {
@@ -40,12 +46,28 @@ export default {
     CardPost,
   },
   methods: {
-    getArticlePage(){
-      this.$router.push('/articlePage/' + this.id)
-      getArticleDetail(this.id).then((res)=>{
+    getArticlePage() {
+      this.$router.push("/articlePage/" + this.id)
+      getArticleDetail(this.id).then(res => {
         this.$store.state.articleDetail = res.data.content
+        const obj = {
+          time: res.data.time,
+          length: res.data.length,
+        }
+        this.$store.commit("changeDate", obj)
+        this.$store.commit("changeDirectory", this.getTitle(res.data.content))
       })
       this.$store.state.currentTitle = this.item.title
+    },
+    getTitle(str) {
+      var title = []
+      var test = str.match(/^[\#]+[\s][\u4e00-\u9fa5_a-zA-Z0-9]+/gm)
+      if (test) {
+        for (let i = 0; i < test.length; i++) {
+          title.push(test[i].replace(" ", ""))
+        }
+      }
+      return title
     },
   },
 }
@@ -58,6 +80,9 @@ export default {
   max-width: 768px;
   position: relative;
 }
+.card-title .post-meta {
+  font-size: 12px;
+}
 .el-card {
   width: 100%;
   background: rgba(255, 255, 255, 0.4);
@@ -67,6 +92,7 @@ export default {
 
 .el-card__body {
   padding: 20px 40px;
+  font-size: 14px;
   position: relative;
 }
 .enter {

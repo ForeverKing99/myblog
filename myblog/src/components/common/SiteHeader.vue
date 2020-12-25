@@ -1,9 +1,11 @@
 <template>
   <div class="site-header" ref="active">
-    <div class="site-img" ref="lazy"><video :src="backvideo" autoplay loop muted></video> </div>
+    <div class="site-img" ref="lazy">
+      <video :src="backvideo" autoplay loop muted></video>
+    </div>
     <div class="site-master">
       <el-card class="box-card">
-        <div class="avatar"><img :src="avatar" alt="头像"></div>
+        <div class="avatar"><img :src="avatar" alt="头像" /></div>
         <p class="motto">身虽囿核桃 心为无限王</p>
       </el-card>
     </div>
@@ -16,8 +18,8 @@ export default {
   data() {
     return {
       girl: require("assets/img/girl.png"),
-      avatar:require("assets/img/avatar.jpg"),
-      backvideo:require('assets/img/backvideo.mp4')
+      avatar: require("assets/img/avatar.jpg"),
+      backvideo: require("assets/img/backvideo.mp4"),
     }
   },
   mounted() {
@@ -55,17 +57,17 @@ export default {
   background-size: cover; */
   transition: all 1s ease-in-out;
 }
-.site-img video{
+.site-img video {
   /* height: 100%;
   width: 100%; */
 }
 .site-master {
-  height: 30vh;
+  height: 25vh;
   width: 50vw;
   max-width: 1024px;
   margin: 0 auto;
   position: relative;
-  bottom: 281px;
+  bottom: 234px;
 }
 .el-card.box-card {
   width: 100%;
@@ -82,7 +84,7 @@ export default {
   height: 50%;
   text-align: center;
 }
-.avatar img{
+.avatar img {
   width: 100px;
   border-radius: 60px;
 }
@@ -91,5 +93,16 @@ export default {
   text-align: center;
   /* padding-top: 30px; */
   font-size: 30px;
+  color: #97dffd;
+  text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff,
+    0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff,
+    0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff,
+    0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff,
+    0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff,
+    0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff,
+    0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff,
+    0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff,
+    0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff,
+    0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff;
 }
 </style>

@@ -23,6 +23,7 @@ export default {
 .post-data {
   width: 70px;
   height: 70px;
+  font-size: 14px;
   border-radius: 35px;
   /* border: 1px solid black; */
   box-shadow: 0 2px 12px rgba(151,223,253,0.85);
@@ -47,6 +48,7 @@ export default {
   top: 50px;
   left: 0;
   background: #97dffd;
+  font-size: 14px;
   transform: translateX(-14px);
 }
 .post-badge::after {

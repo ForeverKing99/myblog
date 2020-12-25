@@ -3,17 +3,17 @@
     <div class="article-wrap">
       <card-post></card-post>
       <div class="article-head" v-if="!isAbout">
-        <h2 class="article-title">{{$store.state.currentTitle}}</h2>
+        <h2 class="article-title">{{ $store.state.currentTitle }}</h2>
         <p class="article-meta">
-          <img :src="calendar" alt="时间" /> 发表于 2020-12-19
-          <img :src="word" alt="字数" /> 字数统计 0.8k
+          <img :src="calendar" alt="时间" /> 发表于 {{formatDate($store.state.time)}}
+          <img :src="word" alt="字数" /> 字数统计 {{$store.state.length}}
         </p>
       </div>
-       <div class="article-head" v-else>
+      <div class="article-head" v-else>
         <h2 class="article-title">我是关于页面</h2>
         <p class="article-meta">
-          <img :src="calendar" alt="时间" /> 发表于 2020-12-19
-          <img :src="word" alt="字数" /> 字数统计 0.8k
+          <img :src="calendar" alt="时间" /> 发表于 {{formatDate($store.state.time)}}
+          <img :src="word" alt="字数" /> 字数统计 {{$store.state.length}}
         </p>
       </div>
       <div class="article-body">
@@ -35,34 +35,40 @@
 
 <script>
 import CardPost from "components/content/CardPost"
+import { formatDate } from "../../mixin"
 export default {
   name: "ArticleDetail",
   props: {
     articleDetail: {
       type: String,
-      default: ''
+      default: "",
     },
-    isAbout:{
-      type:Boolean,
-      default:false
-    }
+    isAbout: {
+      type: Boolean,
+      default: false,
+    },
   },
   components: {
     CardPost,
   },
+  mixins: [formatDate],
   data() {
     return {
       calendar: require("assets/img/calendar.svg"),
       word: require("assets/img/word.svg"),
+      // articleDate: this.$store.state.time,
     }
   },
-  computed: {
-  }
+  computed: {},
+  mounted() {
+    // console.log(this.articleDate);
+    
+  },
 }
 </script>
 
 <style>
-article div {
+article .article-head {
   text-align: center;
 }
 

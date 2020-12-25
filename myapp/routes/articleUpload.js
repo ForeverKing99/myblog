@@ -8,7 +8,7 @@ var obj = {}
 var newDetail = {}
 var idData = JSON.parse(fs.readFileSync(articlePath + '/testdetail.json').toString())
 var articleData = JSON.parse(fs.readFileSync(articlePath + '/testlist.json').toString())
-
+var time = new Date().getTime()
 
 
 
@@ -17,13 +17,15 @@ router.post('/', function (req, res, next) {
   obj.summary = req.body.summary
   obj.title = req.body.title
   obj.id = idData[0].contentlength
+  obj.length = req.body.content.length
+  obj.time = time
   newDetail.id = idData[0].contentlength
   idData[0].contentlength++
   articleData.push(obj)
-
-  
   newDetail.content = req.body.content
   newDetail.title = req.body.title
+  newDetail.length = req.body.content.length
+  newDetail.time = time
   idData.push(newDetail)
   var writeDetail = JSON.stringify(idData)
   var writeData = JSON.stringify(articleData)

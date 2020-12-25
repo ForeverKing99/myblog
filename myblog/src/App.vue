@@ -6,7 +6,6 @@
       <router-view></router-view>
     </keep-alive>
     <back-to-top></back-to-top>
-
     <lazy-img></lazy-img>
   </div>
 </template>
@@ -37,6 +36,9 @@ export default {
 }
 </script>
 <style>
+h2 {
+  text-shadow: 1px 1px 3px rgba(68, 64, 0, 0.45);
+}
 body {
   overflow-x: hidden;
 }

@@ -2,7 +2,18 @@
   <div class="aside-bar" ref="aside">
     <div class="sitebar-inner" :class="{ fix: $store.state.isFix }">
       <el-tabs type="border-card" v-model="$store.state.aside">
-        <el-tab-pane label="文章目录" name="article"> </el-tab-pane>
+        <el-tab-pane label="文章目录" name="article"
+          ><div class="article-post">
+            <ul class="post-ul">
+              <li
+                v-for="(item, index) in $store.state.articleDirectory"
+                :key="index"
+              >
+                {{ item }}
+              </li>
+            </ul>
+          </div></el-tab-pane
+        >
         <el-tab-pane label="关于我" name="me"
           ><div class="head-img"></div>
           <div class="social-link">
@@ -58,7 +69,7 @@
 </template>
 
 <script>
-import {watchOne} from "../../mixin"
+import { watchOne } from "../../mixin"
 export default {
   name: "AsideBar",
   data() {
@@ -72,10 +83,20 @@ export default {
   },
   methods: {},
   mounted() {
-    // document.getElementsByClassName("el-tabs__nav-scroll")[0].style.display =
-    //   "none"
+    if (
+      this.$store.state.currentPath.indexOf("articlePage") < 0 ||
+      this.$store.state.currentPath.indexOf("about") >= 0
+    ) {
+      document.getElementsByClassName("el-tabs__header")[0].style.display =
+        "none"
+      this.$store.state.aside = "me"
+    } else {
+      document.getElementsByClassName("el-tabs__header")[0].style.display =
+        "flex"
+      this.$store.state.aside = "article"
+    }
   },
-  mixins:[watchOne]
+  mixins: [watchOne],
 }
 </script>
 
@@ -104,7 +125,7 @@ export default {
   border-radius: 10px;
 }
 .sitebar-inner .el-tabs__header {
-  display: none;
+  display: flex;
   justify-content: center;
 }
 .sitebar-inner .el-tabs__header.noshow {
@@ -160,5 +181,9 @@ export default {
 .hobby .hobby-left {
   float: left;
   margin-right: 20px;
+}
+.article-post li {
+  list-style: none;
+  margin: 5px 0;
 }
 </style>
