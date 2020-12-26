@@ -11,6 +11,7 @@ export default new Vuex.Store({
     isFix: false,
     currentTitle: '',
     articleList: [],
+    searchList: [],
     articleDetail: '',
     articleDirectory: [],
     length: 0,
@@ -43,6 +44,11 @@ export default new Vuex.Store({
     },
     login(state, payload) {
       state.login = payload
+    },
+    listChange(state, payload) {
+      state.searchList = state.articleList.filter(item => {
+        return item.tab == payload
+      })
     }
   },
   actions: {

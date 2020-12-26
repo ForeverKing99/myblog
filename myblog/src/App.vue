@@ -14,8 +14,7 @@ import LazyImg from "components/common/LazyImg"
 import SiteHeader from "components/common/SiteHeader"
 import NavBar from "components/common/NavBar.vue"
 import BackToTop from "components/common/BackToTop.vue"
-import { windowScroll } from "./mixin"
-
+import { windowScroll ,search} from "./mixin"
 import { getArticleList } from "./network/articleList"
 
 export default {
@@ -26,7 +25,7 @@ export default {
     SiteHeader,
     BackToTop,
   },
-  mixins: [windowScroll],
+  mixins: [windowScroll,search],
   mounted() {
     window.addEventListener("scroll", this.handleScroll)
     getArticleList().then(res => {

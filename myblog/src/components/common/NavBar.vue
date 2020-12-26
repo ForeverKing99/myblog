@@ -1,6 +1,6 @@
 <template>
   <div class="nav-bar" ref="nav">
-    <forever></forever>
+    <forever @homeClick="scrollTo();currentIndex = 'home'"></forever>
     <el-menu
       :default-active="currentIndex"
       class="el-menu-demo"

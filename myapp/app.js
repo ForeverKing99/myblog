@@ -10,6 +10,7 @@ var articlelist = require('./routes/articlelist');
 var articlepage = require('./routes/articlepage');
 var articleUpload = require('./routes/articleUpload');
 var login = require('./routes/login');
+var searchList = require('./routes/searchList')
 // var myData = require('./myData')
 
 var app = express();
@@ -33,6 +34,7 @@ app.use('/articlelist', articlelist);
 app.use('/articlepage', articlepage);
 app.use('/articleUpload', articleUpload);
 app.use('/login', login);
+app.use('/searchList', searchList);
 
 
 

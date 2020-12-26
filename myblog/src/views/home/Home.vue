@@ -3,13 +3,9 @@
     <el-main>
       <main-content>
         <card v-for="item in $store.state.articleList" :key="item.id" :item='item' :id="item.id"></card>
-        
       </main-content>
-       
       <aside-bar></aside-bar
     >
-    
-    
     </el-main>
     <el-footer><bottom-footer></bottom-footer></el-footer>
   </el-container></keep-alive>

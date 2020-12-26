@@ -11,6 +11,7 @@ export default {
   methods: {
     toHome(){
       this.$router.push('/home').catch((err)=>{})
+      this.$emit('homeClick')
     }
   },
 }

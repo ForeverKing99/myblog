@@ -13,6 +13,7 @@
           title="登录"
           :visible.sync="dialogFormVisible"
           :modal-append-to-body="false"
+          :modal="false"
         >
           <el-form :model="form">
             <el-form-item label="用户名" :label-width="formLabelWidth">

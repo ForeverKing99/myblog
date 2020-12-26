@@ -9,7 +9,7 @@ import "mavon-editor/dist/css/index.css"
 import 'default-passive-events'
 
 router.beforeEach((to, from, next) => {
-    store.commit('changepath', to.path.replace('/', ''))
+  store.commit('changepath', to.path.replace('/', ''))
   next()
 })
 Vue.use(mavonEditor)

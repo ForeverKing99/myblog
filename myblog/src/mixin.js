@@ -1,3 +1,6 @@
+import { searchList } from './network/searchList'
+
+
 const formatDate = {
   methods: {
     formatDate(date) {
@@ -19,8 +22,26 @@ const watchOne = {
         document.getElementsByClassName("el-tabs__header")[0].style.display = 'flex'
         this.$store.state.aside = 'article'
       }
+
     }
   },
+}
+const search = {
+  watch: {
+    '$store.state.currentPath': function () {
+      switch (this.$store.state.currentPath) {
+        case 'code':
+          this.$store.commit('listChange', '编程')
+          break
+        case 'life':
+          this.$store.commit('listChange', '生活')
+          break
+        case 'note':
+          this.$store.commit('listChange', '随笔')
+          break
+      }
+    }
+  }
 }
 
 const windowScroll = {
@@ -44,4 +65,4 @@ const windowScroll = {
     }
   },
 }
-export { windowScroll, watchOne, formatDate }
+export { windowScroll, watchOne, formatDate, search }
