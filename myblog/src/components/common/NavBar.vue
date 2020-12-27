@@ -56,11 +56,6 @@ export default {
       var timer
       return function() {
         if (self.timeArray.length > 0) {
-          // for (let i = 0; i < self.timeArray.length; i++) {
-          //   // console.log('clear');
-          //   clearInterval(self.timeArray[i])
-          //    self.timeArray.pop()
-          // }
           return false
         }
         timer = setInterval(func(), time)
@@ -76,22 +71,16 @@ export default {
       }
     },
     scrollfunc(distance) {
-      console.log(distance)
       const self = this
-      // console.log(distance)
       document.documentElement.scrollTop -= distance
-      // console.log(document.documentElement.scrollTop - window.innerHeight)
       if (
         Math.abs(document.documentElement.scrollTop - window.innerHeight) <=
         Math.abs(distance)
       ) {
-        // console.log('结束');
         document.documentElement.scrollTop = window.innerHeight
-        // for (let i = self.timeArray.length -1; i >= 0; i--) {
         clearInterval(self.timeArray[self.timeArray.length - 1])
         self.timeArray.pop()
         console.log("结束2")
-        // }
       }
     },
     scrollTo() {
@@ -99,16 +88,11 @@ export default {
         clearInterval(this.timeArray[0])
         this.timeArray.pop()
       }, 1000)
-
-      // if(document.documentElement.scrollTop == window.innerHeight) {
-      // console.log('en');
       for (let i = this.timeArray.length - 1; i >= 0; i--) {
         clearInterval(this.timeArray[i])
         console.log("ee")
         this.timeArray.pop()
       }
-      // }
-      // if(this.timeArray > 1) return false
       this.debounce(this._test, 1, this)()
     },
   },

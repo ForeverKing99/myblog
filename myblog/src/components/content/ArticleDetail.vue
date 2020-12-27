@@ -59,12 +59,7 @@ export default {
     return {
       calendar: require("assets/img/calendar.svg"),
       word: require("assets/img/word.svg"),
-      // articleDate: this.$store.state.time,
     }
-  },
-  computed: {},
-  mounted() {
-    // console.log(this.articleDate);
   },
 }
 </script>

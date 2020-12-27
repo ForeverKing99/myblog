@@ -160,13 +160,10 @@ export default {
   outline: none;
   width: 720px;
   height: 150px;
-  /* border: none; */
-  /* margin-left: 10px; */
 }
 .editorInput {
   width: 718px;
   height: 30px;
-  /* border-radius: 5px; */
   outline: none;
   margin: 10px 0;
 }

@@ -32,12 +32,6 @@ export default {
     ArticleDetail,
     AsideBar,
   },
-  created() {
-    // console.log("我是abaoutcrated")
-    // getArticleDetail(this.id).then((res)=>{
-    //     this.articleDetail = res
-    //   })
-  },
 }
 </script>
 

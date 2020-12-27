@@ -106,18 +106,14 @@ export default {
   margin-left: 100px;
 }
 .sitebar-inner {
-  /* width: 300; */
-  /* padding: 10px 10px; */
   overflow: hidden;
   border-radius: 15px;
 }
 .sitebar-inner.fix {
-  /* width: 300px; */
   position: fixed;
   top: 100px;
 }
 .head-img {
-  /* margin-top: 0; */
   width: 300px;
   height: 200px;
   background: url("../../assets/img/headImg.jpg");

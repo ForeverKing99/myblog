@@ -74,9 +74,9 @@ export default {
             this.form.name = ""
             this.form.password = ""
             this.dialogFormVisible = false
-            this.$store.commit('login',true)
+            this.$store.commit("login", true)
             alert("登陆成功")
-          }else{
+          } else {
             alert("帐号或密码错误")
           }
         })
@@ -110,9 +110,6 @@ export default {
   height: 100%;
   opacity: 0;
   overflow: hidden;
-  /* background: url("../../assets/img/girl.png");
-  background-repeat: no-repeat;
-  background-size: cover; */
   transition: all 1s ease-in-out;
 }
 .site-master {
@@ -147,7 +144,6 @@ export default {
   height: 50%;
   user-select: none;
   text-align: center;
-  /* padding-top: 30px; */
   font-size: 30px;
   color: #97dffd;
   text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff,

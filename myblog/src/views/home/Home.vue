@@ -1,4 +1,4 @@
-<template><keep-alive include="AsideBar">
+<template>
   <el-container>
     <el-main>
       <main-content>
@@ -8,7 +8,7 @@
     >
     </el-main>
     <el-footer><bottom-footer></bottom-footer></el-footer>
-  </el-container></keep-alive>
+  </el-container>
 </template>
 
 <script>

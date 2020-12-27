@@ -1,6 +1,3 @@
-import { searchList } from './network/searchList'
-
-
 const formatDate = {
   methods: {
     formatDate(date) {
@@ -22,7 +19,6 @@ const watchOne = {
         document.getElementsByClassName("el-tabs__header")[0].style.display = 'flex'
         this.$store.state.aside = 'article'
       }
-
     }
   },
 }

@@ -11,7 +11,6 @@ import BottomFooter from "components/common/BottomFooter"
 import MainContent from "components/common/MainContent"
 import Card from "components/content/Card"
 import AsideBar from "components/common/AsideBar.vue"
-// import {searchList} from 'network/searchList.js'
 import {search} from '../../mixin'
 export default {
   name:"Note",
@@ -21,7 +20,6 @@ export default {
     Card,
     AsideBar,
   },
-  // mixins: [search]
 }
 </script>
 

@@ -51,7 +51,6 @@ export default {
   height: 70px;
   font-size: 14px;
   border-radius: 35px;
-  /* border: 1px solid black; */
   box-shadow: 0 2px 12px rgba(151, 223, 253, 0.85);
   position: absolute;
   transform: translate(-50%, -50%);
@@ -74,7 +73,6 @@ export default {
   padding: 0 10px;
   height: 24px;
   line-height: 24px;
-  /* border: 1px solid black; */
   border-radius: 3px;
   box-shadow: 0 2px 12px rgba(151, 223, 253, 0.85);
   position: absolute;

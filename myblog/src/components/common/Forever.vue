@@ -9,10 +9,10 @@
 export default {
   name: "Forever",
   methods: {
-    toHome(){
-      this.$router.push('/home').catch((err)=>{})
-      this.$emit('homeClick')
-    }
+    toHome() {
+      this.$router.push("/home").catch(err => {})
+      this.$emit("homeClick")
+    },
   },
 }
 </script>
@@ -36,7 +36,7 @@ export default {
   line-height: 60px;
   font-size: 40px;
 }
-.to-home:hover{
+.to-home:hover {
   color: white;
 }
 </style>

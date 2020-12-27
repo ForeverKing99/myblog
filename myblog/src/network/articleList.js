@@ -8,8 +8,5 @@ export function getArticleList(){
 export function getArticleDetail(id){
   return request({
     url:'/articlepage/'+id,
-    // params:{
-    //   id
-    // }
   })
 }

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 const Home = () => import('views/home/Home.vue')
 const About = () => import('views/about/About.vue')
 const ArticleEditor = () => import('views/articleEditor/ArticleEditor.vue')
@@ -9,9 +10,6 @@ const Note = () => import('views/note/Note.vue')
 const ArticlePage = () => import('views/articlePage/ArticlePage.vue')
 
 Vue.use(Router)
-
-
-
 
 export default new Router({
   mode: 'history',
@@ -25,13 +23,6 @@ export default new Router({
       path: '/home',
       name: 'Home',
       component: Home,
-      // children: [
-      //   {
-      //     path: 'articlePage/:id',
-      //     name: 'ArticlePage',
-      //     component: ArticlePage
-      //   }]
-
     },
     {
       path: '/about',
@@ -59,9 +50,9 @@ export default new Router({
       component: Code
     },
     {
-      path:'/articlePage/:id',
-      name:'ArticlePage',
-      component:ArticlePage
+      path: '/articlePage/:id',
+      name: 'ArticlePage',
+      component: ArticlePage
     }
   ]
 })
