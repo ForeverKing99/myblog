@@ -10,9 +10,6 @@ var idData = JSON.parse(fs.readFileSync(articlePath + '/testdetail.json').toStri
 var articleData = JSON.parse(fs.readFileSync(articlePath + '/testlist.json').toString())
 var time = new Date().getTime()
 
-
-
-
 router.post('/', function (req, res, next) {
   obj.summary = req.body.summary
   obj.title = req.body.title
@@ -35,7 +32,6 @@ router.post('/', function (req, res, next) {
     if (err) {
       return console.error(err);
     }
-    // res.send(JSON.stringify(articleData))
     fs.writeFile(articlePath + '/testdetail.json', writeDetail, function (err) {
       if (err) {
         return console.error(err);
