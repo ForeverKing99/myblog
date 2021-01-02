@@ -60,6 +60,7 @@ export default {
         this.$store.commit("changeDirectory", this.getTitle(res.data.content))
       })
       this.$store.state.currentTitle = this.item.title
+      this.scrollTo()
     },
     getTitle(str) {
       var title = []
@@ -70,6 +71,20 @@ export default {
         }
       }
       return title
+    },
+    scrollTo() {
+      const distance =
+        (document.documentElement.scrollTop - window.innerHeight) / 70
+        let timer = setInterval(()=>{
+          document.documentElement.scrollTop -= distance
+      if (
+        Math.abs(document.documentElement.scrollTop - window.innerHeight) <=
+        Math.abs(distance)
+      ) {
+        document.documentElement.scrollTop = window.innerHeight
+        clearInterval(timer)
+        }
+      },1)
     },
   },
 }

@@ -25,12 +25,8 @@ export default {
   computed: {
     articleDay() {
       if (!this.$store.state.time) {
-        console.log("nohao")
-
         return new Date(this.item.time).getDate() || 1
       } else {
-        console.log("hh")
-
         return new Date(this.$store.state.time).getDate() || 1
       }
     },
