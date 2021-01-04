@@ -1,7 +1,9 @@
 import {request} from './request'
 export function commitLogin(obj){
   return request({
-    url:'/login',
+    params:{
+      reqpath:"login"
+    },
     method:'post',
     data:{...obj}
   })

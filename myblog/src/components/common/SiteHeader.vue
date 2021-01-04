@@ -94,6 +94,9 @@ export default {
 </script>
 
 <style>
+.el-dialog{
+  z-index: 4;
+}
 .show {
   opacity: 1 !important;
 }

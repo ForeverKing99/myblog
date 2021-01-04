@@ -80,7 +80,6 @@ export default {
         document.documentElement.scrollTop = window.innerHeight
         clearInterval(self.timeArray[self.timeArray.length - 1])
         self.timeArray.pop()
-        console.log("结束2")
       }
     },
     scrollTo() {
@@ -90,7 +89,6 @@ export default {
       }, 1000)
       for (let i = this.timeArray.length - 1; i >= 0; i--) {
         clearInterval(this.timeArray[i])
-        console.log("ee")
         this.timeArray.pop()
       }
       this.debounce(this._test, 1, this)()

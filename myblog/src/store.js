@@ -16,7 +16,8 @@ export default new Vuex.Store({
     articleDirectory: [],
     length: 0,
     time: 0,
-    login: false
+    login: false,
+    currentId:0
   },
   mutations: {
     backshow(state, payload) {
@@ -41,6 +42,9 @@ export default new Vuex.Store({
     changeDate(state, payload) {
       state.time = payload.time
       state.length = payload.length
+    },
+    changeId(state, payload) {
+      state.currentId = payload
     },
     login(state, payload) {
       state.login = payload

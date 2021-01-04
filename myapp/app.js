@@ -23,7 +23,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-
+app.get('/',function(req,res,next){
+  res.send('成功')
+})
 app.use('/articlelist', articlelist);
 app.use('/articlepage', articlepage);
 app.use('/articleUpload', articleUpload);

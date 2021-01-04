@@ -18,7 +18,7 @@
           ><div class="head-img"></div>
           <div class="social-link">
             <p>
-              <a href="" target="_blank"
+              <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=571588677" target="_blank"
                 ><el-button
                   ><img :src="tencent" alt="" /> QQ 571588677</el-button
                 ></a

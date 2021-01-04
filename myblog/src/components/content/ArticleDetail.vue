@@ -1,7 +1,7 @@
 <template>
   <article class="article-detail">
     <div class="article-wrap">
-      <card-post></card-post>
+      <card-post :item="item"></card-post>
       <div class="article-head" v-if="!isAbout">
         <h2 class="article-title" v-cloak>{{ $store.state.currentTitle }}</h2>
         <p class="article-meta">
@@ -45,6 +45,12 @@ export default {
     articleDetail: {
       type: String,
       default: "",
+    },
+    item: {
+      type: Object,
+      default: () => {
+        return {}
+      },
     },
     isAbout: {
       type: Boolean,

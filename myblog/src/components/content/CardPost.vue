@@ -4,7 +4,9 @@
       <div class="post-month">{{ articleMonth }}月</div>
       <div class="post-day">{{ articleDay }}</div>
     </div>
-    <div class="post-badge">{{ item.tab }}</div>
+    <div class="post-badge">
+      {{ item.tab }}
+    </div>
   </div>
 </template>
 
@@ -36,6 +38,11 @@ export default {
       } else {
         return new Date(this.$store.state.time).getMonth() + 1 || 1
       }
+    },
+    articleTab() {
+      this.$store.state.articleList.find(item => {
+        return item.id == this.$store.state.currentId
+      })
     },
   },
 }

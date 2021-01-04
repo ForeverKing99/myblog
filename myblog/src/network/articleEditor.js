@@ -1,7 +1,9 @@
 import {request} from './request'
 export function articleUpload(obj){
   return request({
-    url:'/articleUpload',
+    params:{
+      reqpath:"articleupdate"
+    },
     method:"post",
     data:{...obj}
   })

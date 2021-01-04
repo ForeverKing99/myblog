@@ -1,12 +1,17 @@
-import {request} from './request'
-export function getArticleList(){
+import { request } from './request'
+export function getArticleList() {
   return request({
-    url:'/articlelist',
-    
+    params: {
+      reqpath: "articlelist"
+    }
+
   })
 }
-export function getArticleDetail(id){
+export function getArticleDetail(id) {
   return request({
-    url:'/articlepage/'+id,
+    params: {
+      reqpath: "articledetail",
+      id
+    }
   })
 }

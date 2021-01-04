@@ -58,6 +58,7 @@ export default {
         }
         this.$store.commit("changeDate", obj)
         this.$store.commit("changeDirectory", this.getTitle(res.data.content))
+        this.$store.commit("changeId", this.id)
       })
       this.$store.state.currentTitle = this.item.title
       this.scrollTo()
