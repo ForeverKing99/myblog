@@ -116,4 +116,13 @@ export default {
 .record a {
   color: #cacaca;
 }
+@media only screen and (max-width: 600px){
+  .bottom-footer{
+    display: block;
+  }
+  .tencent{
+    float: none;
+
+  }
+}
 </style>

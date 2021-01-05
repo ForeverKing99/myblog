@@ -39,4 +39,9 @@ export default {
 .to-home:hover {
   color: white;
 }
+@media only screen and (max-width: 600px){
+  .forever{
+    display: none;
+  }
+}
 </style>

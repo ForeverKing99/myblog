@@ -1,39 +1,39 @@
 <template>
   <div class="site-header" ref="active">
     <div class="site-img" ref="lazy">
-      <video :src="backvideo" autoplay loop muted></video>
-    </div>
-    <div class="site-master">
-      <el-card class="box-card">
-        <div class="avatar" @click="loginStart">
-          <img :src="avatar" alt="头像" />
-        </div>
-        <p class="motto">身虽囿核桃 心为无限王</p>
-        <el-dialog
-          title="登录"
-          :visible.sync="dialogFormVisible"
-          :modal-append-to-body="false"
-          :modal="false"
-        >
-          <el-form :model="form">
-            <el-form-item label="用户名" :label-width="formLabelWidth">
-              <el-input v-model="form.name" autocomplete="off"></el-input>
-            </el-form-item>
-            <el-form-item label="密码" :label-width="formLabelWidth">
-              <el-input
-                v-model="form.password"
-                autocomplete="off"
-                type="password"
-                show-password
-              ></el-input>
-            </el-form-item>
-          </el-form>
-          <div slot="footer" class="dialog-footer">
-            <el-button @click="commitConcel">取 消</el-button>
-            <el-button type="primary" @click="commitData">确 定</el-button>
+      <video :src="backvideo" autoplay loop muted width="100%"></video>
+      <div class="site-master">
+        <el-card class="box-card">
+          <div class="avatar" @click="loginStart">
+            <img :src="avatar" alt="头像" />
           </div>
-        </el-dialog>
-      </el-card>
+          <p class="motto"><span class="spanleft">身虽囿核桃</span><span class="spanright">心为无限王</span></p>
+          <el-dialog
+            title="登录"
+            :visible.sync="dialogFormVisible"
+            :modal-append-to-body="false"
+            :modal="false"
+          >
+            <el-form :model="form">
+              <el-form-item label="用户名" :label-width="formLabelWidth">
+                <el-input v-model="form.name" autocomplete="off"></el-input>
+              </el-form-item>
+              <el-form-item label="密码" :label-width="formLabelWidth">
+                <el-input
+                  v-model="form.password"
+                  autocomplete="off"
+                  type="password"
+                  show-password
+                ></el-input>
+              </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+              <el-button @click="commitConcel">取 消</el-button>
+              <el-button type="primary" @click="commitData">确 定</el-button>
+            </div>
+          </el-dialog>
+        </el-card>
+      </div>
     </div>
   </div>
 </template>
@@ -94,14 +94,14 @@ export default {
 </script>
 
 <style>
-.el-dialog{
+.el-dialog {
   z-index: 4;
 }
 .show {
   opacity: 1 !important;
 }
 .site-header {
-  height: 100vh;
+  /* height: 100vh; */
   width: calc(100vw - 17px);
   min-height: 40vh;
   margin: -60px auto 0;
@@ -110,9 +110,9 @@ export default {
 }
 .site-img {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   opacity: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
   transition: all 1s ease-in-out;
 }
 .site-master {
@@ -120,8 +120,10 @@ export default {
   width: 50vw;
   max-width: 1024px;
   margin: 0 auto;
-  position: relative;
-  bottom: 234px;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .el-card.box-card {
   width: 100%;
@@ -144,7 +146,7 @@ export default {
   border-radius: 60px;
 }
 .motto {
-  height: 50%;
+  height: 40%;
   user-select: none;
   text-align: center;
   font-size: 30px;
@@ -159,5 +161,47 @@ export default {
     0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff,
     0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff,
     0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff;
+}
+.spanright{
+  margin-left: 10px;
+}
+@media only screen and (max-width: 720px) {
+  .site-master {
+    width: 90%;
+  }
+  .site-header video{
+    display: none;
+  }
+  .avatar img {
+    width: 80px;
+    border-radius: 40px;
+  }
+  .motto{
+    margin: 0;
+    font-size: 20px;
+    margin-top: 15px;
+  }
+}
+@media only screen and (max-width: 420px) and (min-width: 200px){
+  .spanleft{
+    display: block;
+    margin-bottom: 10px;
+  }
+  .spanright{
+    margin:0;
+  }
+  .avatar img {
+    width: 60px;
+    border-radius: 30px;
+  }
+  .avatar{
+    height: auto;
+  }
+  .motto{
+    height: auto;
+  }
+  .site-master{
+    height: auto;
+  }
 }
 </style>

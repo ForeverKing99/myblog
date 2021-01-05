@@ -49,4 +49,12 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+@media screen and (max-width: 480px) {
+  #app {
+    background: url("assets/img/background2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+}
 </style>

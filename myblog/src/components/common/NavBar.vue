@@ -49,49 +49,7 @@ export default {
   methods: {
     handleSelect(key, keyPath) {
       this.currentIndex = key
-      this.scrollTo()
       this.$router.push("/" + key).catch(err => {})
-    },
-    debounce(func, time, self) {
-      var timer
-      return function() {
-        if (self.timeArray.length > 0) {
-          return false
-        }
-        timer = setInterval(func(), time)
-        self.timeArray.push(timer)
-      }
-    },
-    _test() {
-      var self = this
-      const distance =
-        (document.documentElement.scrollTop - window.innerHeight) / 100
-      return function() {
-        self.scrollfunc(distance)
-      }
-    },
-    scrollfunc(distance) {
-      const self = this
-      document.documentElement.scrollTop -= distance
-      if (
-        Math.abs(document.documentElement.scrollTop - window.innerHeight) <=
-        Math.abs(distance)
-      ) {
-        document.documentElement.scrollTop = window.innerHeight
-        clearInterval(self.timeArray[self.timeArray.length - 1])
-        self.timeArray.pop()
-      }
-    },
-    scrollTo() {
-      setTimeout(() => {
-        clearInterval(this.timeArray[0])
-        this.timeArray.pop()
-      }, 1000)
-      for (let i = this.timeArray.length - 1; i >= 0; i--) {
-        clearInterval(this.timeArray[i])
-        this.timeArray.pop()
-      }
-      this.debounce(this._test, 1, this)()
     },
   },
   mounted() {
@@ -150,14 +108,6 @@ export default {
   background-color: rgba(34, 34, 34, 0.25);
   color: black;
 }
-/* .el-menu--popup-bottom-start .el-menu-item {
-  background-color: rgba(255, 255, 255, 0.7) !important;
-  color: white !important;
-} */
-
-/* .el-menu--popup-bottom-start .el-menu-item:not(.is-disabled):hover {
-  color: #303133 !important;
-} */
 .nav-bar .el-submenu__title {
   padding: 0 18px;
   font-size: 16px;
@@ -166,7 +116,6 @@ export default {
   background-color: rgba(34, 34, 34, 0.25);
 }
 .el-menu .el-menu-item {
-  /* background-color: transparent !important; */
   font-size: 16px;
 }
 .nav-bar .el-menu--popup-bottom-start .el-menu-item:hover {

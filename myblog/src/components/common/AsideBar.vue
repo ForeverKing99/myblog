@@ -18,7 +18,9 @@
           ><div class="head-img"></div>
           <div class="social-link">
             <p>
-              <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=571588677" target="_blank"
+              <a
+                href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=571588677"
+                target="_blank"
                 ><el-button
                   ><img :src="tencent" alt="" /> QQ 571588677</el-button
                 ></a
@@ -181,5 +183,18 @@ export default {
 .article-post li {
   list-style: none;
   margin: 5px 0;
+}
+@media only screen and (max-width: 1400px) {
+  .aside-bar {
+    margin-left: 0;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .aside-bar {
+    display: none;
+  }
+  .topWrapper{
+    display: none;
+  }
 }
 </style>

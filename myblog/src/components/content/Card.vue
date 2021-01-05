@@ -50,20 +50,19 @@ export default {
   methods: {
     getArticlePage() {
       this.$router.push("/articlePage/" + this.id)
-      getArticleDetail(this.id).then(res => {
-        this.$store.state.articleDetail = res.data.content
-        const obj = {
-          time: res.data.time,
-          length: res.data.length,
-        }
-        this.$store.commit("changeDate", obj)
-        this.$store.commit("changeDirectory", this.getTitle(res.data.content))
-        this.$store.commit("changeId", this.id)
-      }).catch(err=>{
-        
-      })
+      getArticleDetail(this.id)
+        .then(res => {
+          this.$store.state.articleDetail = res.data.content
+          const obj = {
+            time: res.data.time,
+            length: res.data.length,
+          }
+          this.$store.commit("changeDate", obj)
+          this.$store.commit("changeDirectory", this.getTitle(res.data.content))
+          this.$store.commit("changeId", this.id)
+        })
+        .catch(err => {})
       this.$store.state.currentTitle = this.item.title
-      this.scrollTo()
     },
     getTitle(str) {
       var title = []
@@ -74,20 +73,6 @@ export default {
         }
       }
       return title
-    },
-    scrollTo() {
-      const distance =
-        (document.documentElement.scrollTop - window.innerHeight) / 70
-        let timer = setInterval(()=>{
-          document.documentElement.scrollTop -= distance
-      if (
-        Math.abs(document.documentElement.scrollTop - window.innerHeight) <=
-        Math.abs(distance)
-      ) {
-        document.documentElement.scrollTop = window.innerHeight
-        clearInterval(timer)
-        }
-      },1)
     },
   },
 }
@@ -136,5 +121,17 @@ export default {
   background: #222;
   transform: scale(1.1);
   transition: all 0.3s ease;
+}
+@media only screen and (max-width: 1200px) and (min-width:720px){
+  .card {
+    margin: 80px auto;
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 720px) and (min-width:200px){
+  .card{
+    margin: 80px 0;
+    width: 100%;
+  }
 }
 </style>

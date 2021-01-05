@@ -104,4 +104,12 @@ article .article-head {
   padding: 20px;
   text-align: left;
 }
+.article-body .v-note-wrapper{
+  min-width: 0;
+}
+@media only screen and (max-width: 720px) and (min-width:200px){
+  .article-wrap{
+    padding: 10px;
+  }
+}
 </style>

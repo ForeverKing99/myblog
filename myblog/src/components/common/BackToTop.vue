@@ -27,9 +27,7 @@ export default {
       }, 1)
     },
   },
-  mounted() {
-   
-  },
+  mounted() {},
 }
 </script>
 
@@ -56,5 +54,10 @@ export default {
   position: absolute;
   bottom: 0;
   cursor: pointer;
+}
+@media only screen and (max-width: 1200px) {
+  .topWrapper.active {
+    top: -100px;
+  }
 }
 </style>
