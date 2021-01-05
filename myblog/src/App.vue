@@ -29,7 +29,7 @@ export default {
   mounted() {
     window.addEventListener("scroll", this.handleScroll)
     getArticleList().then(res => {
-      this.$store.state.articleList = res.data
+      this.$store.state.articleList.push(...res.data)
     })
   },
 }
