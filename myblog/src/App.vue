@@ -19,11 +19,29 @@ import { getArticleList } from "./network/articleList"
 
 export default {
   name: "APP",
+  data(){
+    return{
+      timer:''
+    }
+  },
   components: {
     LazyImg,
     NavBar,
     SiteHeader,
     BackToTop,
+  },
+  methods: {
+    changeTime(){
+      const time = this.$store.state.startTime
+      const newTime = new Date().getTime()
+      const reduceTime = newTime - time
+      const day = Math.floor(reduceTime/86400000)
+      const hour = Math.floor((reduceTime/3600000)%24)
+      const min = Math.floor((reduceTime/60000)%60)
+      const sec = Math.floor((reduceTime/1000)%60)
+      const obj = {day,hour,min,sec}
+      this.$store.commit("changedate",obj)
+    }
   },
   mixins: [windowScroll, search],
   mounted() {
@@ -31,6 +49,10 @@ export default {
     getArticleList().then(res => {
       this.$store.state.articleList.push(...res.data)
     })
+    this.timer = setInterval(this.changeTime,1000)
+  },
+  beforeDestroy() {
+    clearInterval(this.timer)
   },
 }
 </script>

@@ -2,7 +2,7 @@
   <div class="bottom-footer">
     <div class="left">
       <p>©2020 Forever</p>
-      <p>此博客已运行1天8小时3分29秒</p>
+      <p>此博客已运行{{$store.state.date}}</p>
     </div>
     <div class="right">
       <p class="tencent">

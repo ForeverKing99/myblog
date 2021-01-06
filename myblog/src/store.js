@@ -17,7 +17,9 @@ export default new Vuex.Store({
     length: 0,
     time: 0,
     login: false,
-    currentId:0
+    currentId:0,
+    startTime:1609948517156,
+    date:''
   },
   mutations: {
     backshow(state, payload) {
@@ -53,6 +55,9 @@ export default new Vuex.Store({
       state.searchList = state.articleList.filter(item => {
         return item.tab == payload
       })
+    },
+    changedate(state, payload){
+      state.date = payload.day+'天'+payload.hour+'小时'+payload.min+'分'+payload.sec+'秒'
     }
   },
   actions: {
