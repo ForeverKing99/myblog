@@ -8,7 +8,6 @@ var articlelist = require('./routes/articlelist');
 var articlepage = require('./routes/articlepage');
 var articleUpload = require('./routes/articleUpload');
 var login = require('./routes/login');
-var searchList = require('./routes/searchList')
 
 var app = express();
 
@@ -26,12 +25,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/',function(req,res,next){
   res.send('成功')
 })
+app.post('/',function(req,res,next){
+  res.send(req.body)
+})
 app.use('/articlelist', articlelist);
 app.use('/articlepage', articlepage);
 app.use('/articleUpload', articleUpload);
 app.use('/login', login);
-app.use('/searchList', searchList);
-
 
 
 // catch 404 and forward to error handler
