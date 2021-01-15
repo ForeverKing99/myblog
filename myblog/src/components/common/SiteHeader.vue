@@ -1,7 +1,7 @@
 <template>
   <div class="site-header" ref="active">
     <div class="site-img" ref="lazy">
-      <video :src="backvideo" autoplay loop muted width="100%"></video>
+      <div class="img-wrap"></div>
       <div class="site-master">
         <el-card class="box-card">
           <div class="avatar" @click="loginStart">
@@ -46,7 +46,7 @@ export default {
     return {
       girl: require("assets/img/girl.png"),
       avatar: require("assets/img/avatar.jpg"),
-      backvideo: require("assets/img/backvideo.mp4"),
+      // backvideo: require("assets/img/backvideo.mp4"),
       dialogFormVisible: false,
       form: {
         name: "",
@@ -101,8 +101,7 @@ export default {
   opacity: 1 !important;
 }
 .site-header {
-  /* height: 100vh; */
-  width: calc(100vw - 17px);
+  /* width: calc(100vw - 17px); */
   min-height: 40vh;
   margin: -60px auto 0;
   position: relative;
@@ -110,10 +109,13 @@ export default {
 }
 .site-img {
   width: 100%;
-  /* height: 100%; */
   opacity: 0;
-  /* overflow: hidden; */
   transition: all 1s ease-in-out;
+}
+.site-img .img-wrap{
+  height: 100vh;
+  background: url('~assets/img/girl.png');
+  background-position: center;
 }
 .site-master {
   height: 25vh;
@@ -169,7 +171,7 @@ export default {
   .site-master {
     width: 90%;
   }
-  .site-header video{
+  .site-header .img-wrap{
     display: none;
   }
   .avatar img {
