@@ -3,7 +3,7 @@
     <el-main
       ><main-content>
         <article-detail :isAbout="true"></article-detail> </main-content
-      ><aside-bar></aside-bar>
+      >
     </el-main>
     <el-footer><bottom-footer></bottom-footer></el-footer>
   </el-container>

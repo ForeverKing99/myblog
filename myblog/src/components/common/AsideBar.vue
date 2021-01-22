@@ -1,7 +1,7 @@
 <template>
   <div class="aside-bar" ref="aside">
     <div class="sitebar-inner" :class="{ fix: $store.state.isFix }">
-      <el-tabs type="border-card" v-model="$store.state.aside">
+      <el-tabs type="border-card" v-model="$store.state.aside" :class="{isNone:$store.state.aside=='article'}">
         <el-tab-pane label="文章目录" name="article"
           ><div class="article-post">
             <ul class="post-ul">
@@ -114,6 +114,9 @@ export default {
 .sitebar-inner.fix {
   position: fixed;
   top: 100px;
+}
+.isNone{
+  display: none;
 }
 .head-img {
   width: 300px;
