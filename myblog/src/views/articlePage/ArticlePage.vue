@@ -6,7 +6,7 @@
           :articleDetail="$store.state.articleDetail"
           :item="
             $store.state.articleList.find(item => {
-              return item.id == this.$store.state.currentId
+              return item._id == this.$store.state.currentId
             })
           "
         ></article-detail> </main-content

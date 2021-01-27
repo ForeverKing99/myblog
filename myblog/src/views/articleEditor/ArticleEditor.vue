@@ -31,7 +31,7 @@
             placeholder="请输入标题"
             v-model="title"
             class="editorInput"
-          /><select id="select">
+          /><select id="select" v-model="tab">
             <option value="编程">编程</option>
             <option value="生活">生活</option>
             <option value="随笔">随笔</option>

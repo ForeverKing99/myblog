@@ -40,9 +40,9 @@ export default {
       }
     },
     articleTab() {
-      this.$store.state.articleList.find(item => {
-        return item.id == this.$store.state.currentId
-      })
+      return this.$store.state.articleList.find(item => {
+        return item._id == this.$store.state.currentId
+      }).tab
     },
   },
 }

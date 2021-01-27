@@ -29,7 +29,7 @@ export default {
       },
     },
     id: {
-      type: Number,
+      type: String,
     },
   },
   data() {
@@ -39,7 +39,7 @@ export default {
       articleLength: this.item.length,
       articleTime: this.item.time,
       articleTab: this.item.tab,
-      articleId: this.item.id,
+      articleId: this.item._id,
     }
   },
   components: {
@@ -49,20 +49,20 @@ export default {
   },
   methods: {
     getArticlePage() {
-      this.$router.push("/articlePage/" + this.id)
-      getArticleDetail(this.id)
+      this.$router.push("/articlePage/" + this.articleTitle)
+      getArticleDetail(this.articleId)
         .then(res => {
-          this.$store.state.articleDetail = res.data.content
+          this.$store.state.articleDetail = res.data[0].content
           const obj = {
-            time: res.data.time,
-            length: res.data.length,
+            time: res.data[0].time,
+            length: res.data[0].length,
           }
           this.$store.commit("changeDate", obj)
           this.$store.commit("changeDirectory", this.getTitle(res.data.content))
-          this.$store.commit("changeId", this.id)
         })
         .catch(err => {})
       this.$store.state.currentTitle = this.item.title
+      this.$store.commit("changeId", this.articleId)
     },
     getTitle(str) {
       var title = []
@@ -122,14 +122,14 @@ export default {
   transform: scale(1.1);
   transition: all 0.3s ease;
 }
-@media only screen and (max-width: 1200px) and (min-width:720px){
+@media only screen and (max-width: 1200px) and (min-width: 720px) {
   .card {
     margin: 80px auto;
     width: 90%;
   }
 }
-@media only screen and (max-width: 720px) and (min-width:200px){
-  .card{
+@media only screen and (max-width: 720px) and (min-width: 200px) {
+  .card {
     margin: 80px 0;
     width: 100%;
   }

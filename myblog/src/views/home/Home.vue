@@ -2,7 +2,7 @@
   <el-container>
     <el-main>
       <main-content>
-        <card v-for="item in $store.state.articleList" :key="item.id" :item='item' :id="item.id"></card>
+        <card v-for="item in $store.state.articleList" :key="item._id" :item='item' :id="item._id"></card>
       </main-content>
       <aside-bar></aside-bar
     >

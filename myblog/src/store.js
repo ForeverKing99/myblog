@@ -58,6 +58,9 @@ export default new Vuex.Store({
     },
     changedate(state, payload){
       state.date = payload.day+'天'+payload.hour+'小时'+payload.min+'分'+payload.sec+'秒'
+    },
+    changelist(state,payload){
+      state.articleList=payload
     }
   },
   actions: {

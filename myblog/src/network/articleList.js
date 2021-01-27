@@ -7,11 +7,11 @@ export function getArticleList() {
 
   })
 }
-export function getArticleDetail(id) {
+export function getArticleDetail(_id) {
   return request({
     params: {
       reqpath: "articledetail",
-      id
+      _id
     }
   })
 }

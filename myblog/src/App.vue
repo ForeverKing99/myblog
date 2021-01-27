@@ -47,7 +47,7 @@ export default {
   mounted() {
     window.addEventListener("scroll", this.handleScroll)
     getArticleList().then(res => {
-      this.$store.state.articleList.push(...res.data)
+      this.$store.commit('changelist',res.data.data)
     })
     this.timer = setInterval(this.changeTime,1000)
   },
