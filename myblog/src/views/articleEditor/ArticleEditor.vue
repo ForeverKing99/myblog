@@ -105,7 +105,7 @@ export default {
       commitMessage: "",
       title: "",
       content: "",
-      tab:''
+      tab:'编程'
     }
   },
   methods: {
