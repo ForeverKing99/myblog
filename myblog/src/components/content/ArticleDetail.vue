@@ -71,6 +71,7 @@ export default {
 </script>
 
 <style>
+
 article .article-head {
   text-align: center;
 }
@@ -80,7 +81,7 @@ article .article-head {
 }
 
 .article-wrap {
-  width: 100%;
+  /* width: 100%; */
   background-color: rgba(255, 255, 255, 1);
   border-radius: 15px;
   padding: 20px;

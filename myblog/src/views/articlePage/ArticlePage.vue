@@ -10,7 +10,7 @@
             })
           "
         ></article-detail> </main-content
-      ><aside-bar></aside-bar>
+      >
     </el-main>
     <el-footer><bottom-footer></bottom-footer></el-footer>
   </el-container>
@@ -20,7 +20,6 @@
 import MainContent from "components/common/MainContent.vue"
 import BottomFooter from "components/common/BottomFooter.vue"
 import ArticleDetail from "components/content/ArticleDetail.vue"
-import AsideBar from "components/common/AsideBar.vue"
 
 export default {
   name: "ArticlePage",
@@ -28,9 +27,14 @@ export default {
     MainContent,
     BottomFooter,
     ArticleDetail,
-    AsideBar,
   },
   created() {},
+  activated(){
+    let height = window.innerWidth>480?window.innerHeight:323
+    if(window.pageYOffset) window.pageYOffset=height
+    if(document.documentElement.scrollTop) document.documentElement.scrollTop=height
+    if(document.body.scrollTop) document.body.scrollTop=height
+  },
   computed: {},
   methods: {
     getTitle(str) {
@@ -50,4 +54,14 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+@media screen and (max-width: 480px) and (min-width: 0px){
+  .main-content {
+    width: 95%;
+    margin: 0 auto;
+  }
+  
+}
+</style>>
+
+</style>

@@ -26,6 +26,9 @@ export default {
       id:'about'
     }
   },
+  activated(){
+    document.documentElement.scrollTop= window.innerHeight
+  },
   components: {
     MainContent,
     BottomFooter,

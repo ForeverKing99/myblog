@@ -7,33 +7,36 @@
           <div class="avatar" @click="loginStart">
             <img :src="avatar" alt="头像" />
           </div>
-          <p class="motto"><span class="spanleft">身虽囿核桃</span><span class="spanright">心为无限王</span></p>
-          <el-dialog
-            title="登录"
-            :visible.sync="dialogFormVisible"
-            :modal-append-to-body="false"
-            :modal="false"
-          >
-            <el-form :model="form">
-              <el-form-item label="用户名" :label-width="formLabelWidth">
-                <el-input v-model="form.name" autocomplete="off"></el-input>
-              </el-form-item>
-              <el-form-item label="密码" :label-width="formLabelWidth">
-                <el-input
-                  v-model="form.password"
-                  autocomplete="off"
-                  type="password"
-                  show-password
-                ></el-input>
-              </el-form-item>
-            </el-form>
-            <div slot="footer" class="dialog-footer">
-              <el-button @click="commitConcel">取 消</el-button>
-              <el-button type="primary" @click="commitData">确 定</el-button>
-            </div>
-          </el-dialog>
+          <p class="motto">
+            <span class="spanleft">身虽囿核桃</span
+            ><span class="spanright">心为无限王</span>
+          </p>
         </el-card>
       </div>
+      <el-dialog
+        title="登录"
+        :visible.sync="dialogFormVisible"
+        :modal-append-to-body="false"
+        :modal="false"
+      >
+        <el-form :model="form">
+          <el-form-item label="用户名" :label-width="formLabelWidth">
+            <el-input v-model="form.name" autocomplete="off"></el-input>
+          </el-form-item>
+          <el-form-item label="密码" :label-width="formLabelWidth">
+            <el-input
+              v-model="form.password"
+              autocomplete="off"
+              type="password"
+              show-password
+            ></el-input>
+          </el-form-item>
+        </el-form>
+        <div slot="footer" class="dialog-footer">
+          <el-button @click="commitConcel">取 消</el-button>
+          <el-button type="primary" @click="commitData">确 定</el-button>
+        </div>
+      </el-dialog>
     </div>
   </div>
 </template>
@@ -94,9 +97,6 @@ export default {
 </script>
 
 <style>
-.el-dialog {
-  z-index: 4;
-}
 .show {
   opacity: 1 !important;
 }
@@ -107,14 +107,17 @@ export default {
   position: relative;
   z-index: 0;
 }
+.el-dialog {
+  z-index: 2000;
+}
 .site-img {
   width: 100%;
   opacity: 0;
   transition: all 1s ease-in-out;
 }
-.site-img .img-wrap{
+.site-img .img-wrap {
   height: 100vh;
-  background: url('~assets/img/girl.png');
+  background: url("~assets/img/girl.png");
   background-position: center;
 }
 .site-master {
@@ -164,46 +167,58 @@ export default {
     0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff,
     0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff;
 }
-.spanright{
+.spanright {
   margin-left: 10px;
 }
 @media only screen and (max-width: 720px) {
   .site-master {
     width: 90%;
   }
-  .site-header .img-wrap{
+  .site-header .img-wrap {
     display: none;
   }
   .avatar img {
     width: 80px;
     border-radius: 40px;
   }
-  .motto{
+  .motto {
     margin: 0;
     font-size: 20px;
     margin-top: 15px;
   }
 }
-@media only screen and (max-width: 420px) and (min-width: 200px){
-  .spanleft{
+@media only screen and (max-width: 420px) and (min-width: 200px) {
+  .spanleft {
     display: block;
     margin-bottom: 10px;
   }
-  .spanright{
-    margin:0;
+  .spanright {
+    margin: 0;
   }
   .avatar img {
     width: 60px;
     border-radius: 30px;
   }
-  .avatar{
+  .avatar {
     height: auto;
   }
-  .motto{
+  .motto {
     height: auto;
   }
-  .site-master{
+  .site-master {
     height: auto;
+  }
+}
+@media screen and (max-width: 480px) and (min-width: 0px) {
+  .el-dialog__wrapper .el-dialog {
+    width: auto;
+    /* height: 200px; */
+  }
+  .el-dialog__wrapper .el-dialog__body {
+    padding: 0 10px;
+  }
+  .el-dialog__wrapper .el-dialog__footer {
+    padding: 0 10px;
   }
 }
 </style>

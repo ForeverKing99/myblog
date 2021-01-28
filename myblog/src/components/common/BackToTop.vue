@@ -55,9 +55,9 @@ export default {
   bottom: 0;
   cursor: pointer;
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1400px) {
   .topWrapper.active {
-    top: -100px;
+    top: -200px;
   }
 }
 </style>

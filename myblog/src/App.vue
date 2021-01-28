@@ -71,12 +71,18 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-@media screen and (max-width: 480px) {
-  #app {
-    background: url("assets/img/background2.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-  }
+@media screen and (max-width: 480px) and (min-width:0px) {
+  #app:before {
+        content: ""; 
+        position: fixed; 
+        top: 0; 
+        left: 0;
+        background: url("assets/img/background2.jpg");
+        height: 100vh; 
+        width: 100%; 
+        background-size: cover;
+        z-index: -1;
+    }
+  
 }
 </style>
